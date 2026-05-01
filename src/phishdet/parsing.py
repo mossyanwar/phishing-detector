@@ -36,9 +36,12 @@ _SKIP_TAGS = {"script", "style", "head", "noscript", "xml"}
 class _HTMLToText(HTMLParser):
     """Small HTML-to-text converter.
 
-    Link targets are kept next to the anchor text, e.g. ``Sign in (http://x.example/login)``,
+    Link targets are kept next to the anchor text, e.g. ``Sign in http://x.example/login``,
     because the mismatch between what a link says and where it goes is one of
-    the more useful phishing signals, and plain-text emails show URLs inline anyway.
+    the more useful phishing signals. They are written bare, the way URLs appear
+    in plain-text mail, so the converted text does not carry a marker that says
+    "this came from HTML" (almost all the phishing is HTML, almost none of the
+    legitimate mail is).
     """
 
     def __init__(self) -> None:
@@ -70,7 +73,7 @@ class _HTMLToText(HTMLParser):
         if tag == "a" and self._href_stack:
             href = self._href_stack.pop()
             if href:
-                self.parts.append(f" ({href}) ")
+                self.parts.append(f" {href} ")
         if tag in _BLOCK_TAGS:
             self.parts.append("\n")
 
