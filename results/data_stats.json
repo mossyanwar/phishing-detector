@@ -30,11 +30,11 @@
     "spamassassin/spam_2": 1397
   },
   "near_duplicate_group_sizes": {
-    "1": 10685,
-    "2": 498,
-    "3": 133,
-    "4": 75,
-    "5": 38,
+    "1": 10672,
+    "2": 500,
+    "3": 132,
+    "4": 76,
+    "5": 37,
     "6": 24,
     "7": 21,
     "8": 20,
@@ -54,8 +54,7 @@
     "24": 2,
     "26": 1,
     "29": 1,
-    "36": 1,
-    "38": 1,
+    "36": 2,
     "42": 1,
     "69": 1
   },
@@ -64,20 +63,20 @@
     "enron:exact_duplicate": 287,
     "enron:near_duplicate_over_cap": 86,
     "nazario:empty_body": 260,
-    "nazario:exact_duplicate": 1273,
-    "nazario:near_duplicate_over_cap": 1052,
-    "nazario:not_english": 249,
+    "nazario:exact_duplicate": 1279,
+    "nazario:near_duplicate_over_cap": 1049,
+    "nazario:not_english": 258,
     "spamassassin:empty_body": 60,
-    "spamassassin:exact_duplicate": 178,
+    "spamassassin:exact_duplicate": 176,
     "spamassassin:near_duplicate_over_cap": 21,
-    "spamassassin:not_english": 58,
+    "spamassassin:not_english": 72,
     "spamassassin:spam_duplicates_main": 0
   },
   "final": {
-    "total": 12779,
+    "total": 12767,
     "by_label": {
       "0": 7575,
-      "1": 5204
+      "1": 5192
     },
     "by_source_subset": {
       "enron/inbox": 3553,
@@ -93,8 +92,8 @@
       "nazario/phishing-2024": 321,
       "nazario/phishing-2025": 425,
       "nazario/phishing0": 228,
-      "nazario/phishing1": 222,
-      "nazario/phishing2": 600,
+      "nazario/phishing1": 218,
+      "nazario/phishing2": 592,
       "nazario/phishing3": 1382,
       "spamassassin/easy_ham": 2423,
       "spamassassin/easy_ham_2": 1366,
@@ -102,26 +101,26 @@
     },
     "by_split_label": {
       "test/0": 1515,
-      "test/1": 1041,
-      "train/0": 5303,
-      "train/1": 3642,
-      "val/0": 757,
-      "val/1": 521
+      "test/1": 1039,
+      "train/0": 5302,
+      "train/1": 3634,
+      "val/0": 758,
+      "val/1": 519
     },
     "by_time_split_label": {
       "test/0": 1515,
-      "test/1": 1481,
-      "train/0": 5303,
-      "train/1": 3246,
-      "unused/1": 14,
-      "val/0": 757,
-      "val/1": 463
+      "test/1": 1480,
+      "train/0": 5302,
+      "train/1": 3235,
+      "unused/1": 15,
+      "val/0": 758,
+      "val/1": 462
     },
     "phishing_by_year": {
       "2004": 41,
-      "2005": 594,
-      "2006": 895,
-      "2007": 902,
+      "2005": 589,
+      "2006": 890,
+      "2007": 900,
       "2015": 234,
       "2016": 357,
       "2017": 253,
@@ -143,10 +142,10 @@
       "2020": 1,
       "2028": 1
     },
-    "spam_side_set": 1708,
+    "spam_side_set": 1696,
     "html_share_by_label": {
       "0": 0.023,
-      "1": 0.955
+      "1": 0.956
     }
   }
 }
