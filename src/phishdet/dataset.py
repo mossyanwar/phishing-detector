@@ -261,3 +261,16 @@ def save_jsonl(records: list[Record], path: Path) -> None:
 def load_jsonl(path: Path) -> list[Record]:
     with path.open(encoding="utf-8") as f:
         return [Record(**json.loads(line)) for line in f]
+
+
+def by_split(records: list[Record], kind: str = "split") -> dict[str, list[Record]]:
+    """Group records by their assignment in ``meta[kind]`` ("split" or "time_split").
+
+    The SpamAssassin spam side set is returned under "spam" for either kind.
+    """
+    out: dict[str, list[Record]] = {"train": [], "val": [], "test": [], "spam": []}
+    for r in records:
+        part = r.meta.get(kind)
+        if part in out:
+            out[part].append(r)
+    return out
