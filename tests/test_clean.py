@@ -9,18 +9,18 @@ from phishdet.clean import (
 
 
 def test_zero_width_characters_are_removed():
-    assert normalise_unicode("pa​ss‍word") == "password"
+    assert normalise_unicode("pa\u200bss\u200dword") == "password"
 
 
 def test_homoglyphs_fixed_only_in_mixed_script_words():
     # Cyrillic 'а' and 'о' inside a Latin word
-    assert normalise_unicode("PаyPаl lоgin") == "PayPal login"
+    assert normalise_unicode("P\u0430yP\u0430l l\u043egin") == "PayPal login"
     # an all-Cyrillic word is left alone
-    assert normalise_unicode("привет") == "привет"
+    assert normalise_unicode("\u043f\u0440\u0438\u0432\u0435\u0442") == "\u043f\u0440\u0438\u0432\u0435\u0442"
 
 
 def test_fullwidth_letters_are_folded():
-    assert normalise_unicode("Ｐａｙ") == "Pay"
+    assert normalise_unicode("\uff30\uff41\uff59") == "Pay"
 
 
 def test_urls_become_host_tokens():
@@ -119,3 +119,17 @@ def test_numeric_dates_are_replaced():
     out = replace_tokens("payment due on 9/30/01 or 2024-03-17, call 0800 123 456")
     assert out.count("DATE") == 2
     assert "0800 123 456" in out
+
+
+def test_upstream_filter_tags_and_scanner_footers_removed():
+    assert clean_subject("****SPAM(5.0)**** Pending Messages") == "Pending Messages"
+    assert clean_subject("[*** POSIBLE SPAM***] IMPORTANT: verify") == "IMPORTANT: verify"
+    assert clean_subject("[EXTERNAL EMAIL - USE CAUTION] ATTENTION") == "ATTENTION"
+    assert clean_subject("The case for spam") == "The case for spam"
+    body = "Pay the invoice today.\nThis email has been scanned by the Symantec Email Security.cloud service.\n"
+    assert "scanned" not in clean_body(body)
+    assert "Pay the invoice today." in clean_body(body)
+
+
+def test_replacement_character_dropped():
+    assert normalise_unicode("Parab\ufffdns") == "Parabns"

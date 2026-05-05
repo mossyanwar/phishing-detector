@@ -18,8 +18,9 @@ from urllib.parse import urlsplit
 
 # --- unicode -----------------------------------------------------------------
 
-# Characters that render as nothing and are used to split words past filters.
-_INVISIBLE = dict.fromkeys(map(ord, "​‌‍⁠﻿­᠎͏"), None)
+# Characters that render as nothing and are used to split words past filters,
+# plus U+FFFD, the replacement character left by broken charset decoding.
+_INVISIBLE = dict.fromkeys(map(ord, "\u200b\u200c\u200d\u2060\ufeff\u00ad\u180e\u034f\ufffd"), None)
 
 # Cyrillic and Greek letters that look like Latin ones. Only applied inside
 # words that also contain Latin letters, so real Russian or Greek text is left alone.
@@ -70,6 +71,21 @@ _EMBEDDED_HEADER = re.compile(r"^\s*(from|to|cc|bcc|sent|date|subject|reply-to)\
 _NOTES_ADDRESS = re.compile(r"\b[A-Z][\w.\-' ]{0,40}/[A-Za-z]{2,12}/[A-Za-z]{2,12}(?:@[A-Za-z]{2,12})?")
 _MAX_TAIL_LINES = 15
 
+# Lines and tags added by the *recipient's* mail system: spam-filter verdicts,
+# virus-scanner footers, "external sender" banners. They are another filter's
+# opinion, or a property of the receiving server, not of the email.
+_FILTER_TAG = re.compile(
+    r"[\[({]\s*\**\s*(?:posible |possible |suspected |probable )?spam\??\s*(?:\(\s*[\d.]+\s*\))?\s*\**\s*[\])}]"
+    r"|\*{2,}\s*(?:posible |possible |suspected )?spam\s*(?:\(\s*[\d.]+\s*\))?\s*\*{2,}"
+    r"|\[\s*external[^\]]{0,40}\]",
+    re.IGNORECASE,
+)
+_GATEWAY_LINE = re.compile(
+    r"has been scanned (?:by|for)|scanned for viruses|email security\.cloud|virus-free\.|"
+    r"originated from outside (?:of )?(?:the|your) organi[sz]ation|^\s*\[?caution:? external",
+    re.IGNORECASE,
+)
+
 
 def _cut_tail(lines: list[str]) -> list[str]:
     """Drop a trailing signature or mailing-list footer if it is short."""
@@ -94,7 +110,7 @@ def strip_structure(body: str) -> str:
     for line in lines:
         if _QUOTED.match(line) or _ATTRIBUTION.match(line) or _ORIGINAL_MSG.match(line):
             continue
-        if _EMBEDDED_HEADER.match(line):
+        if _EMBEDDED_HEADER.match(line) or _GATEWAY_LINE.search(line):
             continue
         if _FOOTER_MARKERS.search(line) and re.search(r"https?://|@", line):
             # single footer lines such as "http://xent.com/mailman/listinfo/fork"
@@ -138,6 +154,7 @@ def _url_repl(match: re.Match[str]) -> str:
 
 
 def replace_tokens(text: str) -> str:
+    text = _FILTER_TAG.sub(" ", text)
     text = _URL.sub(_url_repl, text)
     text = _EMAIL.sub(" EMAIL ", text)
     text = _NOTES_ADDRESS.sub(" NAME ", text)
