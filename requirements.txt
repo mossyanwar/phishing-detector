@@ -1,0 +1,10 @@
+# Core dependencies: data prep, TF-IDF baseline, metrics, figures, LLM client, tests.
+# Versions are the ones used to produce the results in REPORT.md (Python 3.12).
+numpy==2.5.4
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+threadpoolctl==3.7.0
+matplotlib==3.11.2
+httpx==0.28.1
+pytest==9.1.1

@@ -1,0 +1,9 @@
+# Extra dependencies for the sentence-embedding model (MiniLM).
+# Install the CPU-only torch wheel, which is far smaller than the default CUDA build:
+#   pip install -r requirements-embed.txt --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1+cpu
+sentence-transformers==6.1.0
+transformers==5.20.2
+tokenizers==0.23.3
+huggingface_hub==1.33.0
+safetensors==0.8.0
