@@ -94,3 +94,20 @@ def test_garbage_input_does_not_raise():
 
 def test_html_to_text_handles_broken_markup():
     assert "hello" in html_to_text("<div><p>hello<b>world")
+
+
+def test_wrong_declared_charset_falls_back_without_replacement_chars():
+    raw = (
+        b"Subject: Price \xa3100\r\n"
+        b"Content-Type: text/plain; charset=utf-8\r\n\r\n"
+        b"It costs \xa3100 caf\xe9\r\n"
+    )
+    p = parse_message(raw)
+    assert "\ufffd" not in p.body and "\ufffd" not in p.subject
+    assert "\xa3100" in p.body and "caf\xe9" in p.body
+    assert p.subject == "Price \xa3100"
+
+
+def test_folded_encoded_subject():
+    raw = b"Subject: =?utf-8?b?QWNjb3VudA==?=\r\n =?utf-8?q?_suspended?=\r\n\r\nbody\r\n"
+    assert parse_message(raw).subject == "Account suspended"

@@ -13,6 +13,7 @@ import email.policy
 import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from email.header import decode_header
 from email.message import Message
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -95,16 +96,53 @@ def html_to_text(html: str) -> str:
     return parser.text()
 
 
+def decode_bytes(data: bytes, charset: str | None = None) -> str:
+    """Decode with the declared charset, then UTF-8, then Windows-1252, then Latin-1.
+
+    Decoding with errors="replace" under a wrong declared charset fills the
+    text with U+FFFD. That happened far more often in the phishing corpus than
+    in the legitimate one, so replacement characters became a source tell.
+    Trying strict decodes first avoids most of them.
+    """
+    for cs in (charset, "utf-8", "cp1252"):
+        if not cs:
+            continue
+        try:
+            return data.decode(cs)
+        except (LookupError, UnicodeDecodeError):
+            continue
+    return data.decode("latin-1")
+
+
 def _decode_part(part: Message) -> str:
     payload = part.get_payload(decode=True)
     if payload is None:
         raw = part.get_payload()
         return raw if isinstance(raw, str) else ""
-    charset = part.get_content_charset() or "utf-8"
+    return decode_bytes(payload, part.get_content_charset())
+
+
+_RAW_SUBJECT = re.compile(rb"^Subject:[ \t]*(.*(?:\r?\n[ \t].*)*)", re.MULTILINE | re.IGNORECASE)
+
+
+def _subject_from_raw(raw: bytes) -> str | None:
+    """Read the Subject straight from the raw header block, decoding encoded
+    words and 8-bit bytes with the same fallbacks as the body."""
+    head = re.split(rb"\r?\n\r?\n", raw, maxsplit=1)[0]
+    m = _RAW_SUBJECT.search(head)
+    if not m:
+        return None
+    value = re.sub(rb"\r?\n[ \t]+", b" ", m.group(1)).decode("latin-1")
     try:
-        return payload.decode(charset, errors="replace")
-    except (LookupError, TypeError):
-        return payload.decode("latin-1", errors="replace")
+        chunks = decode_header(value)
+    except Exception:
+        return None
+    out = []
+    for chunk, cs in chunks:
+        if isinstance(chunk, str):
+            chunk = chunk.encode("latin-1", errors="replace")
+        out.append(decode_bytes(chunk, cs))
+    return "".join(out)
 
 
 def _header_str(msg: Message, name: str) -> str:
@@ -153,6 +191,9 @@ def parse_message(raw: bytes | str, from_line: str | None = None) -> ParsedEmail
     except Exception:
         msg = email.message_from_bytes(raw, policy=email.policy.compat32)
         subject = _header_str(msg, "Subject")
+    raw_subject = _subject_from_raw(raw)
+    if raw_subject is not None:
+        subject = raw_subject
 
     plain: list[str] = []
     html: list[str] = []
