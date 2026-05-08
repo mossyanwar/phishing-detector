@@ -116,9 +116,17 @@ def test_cleaning_is_idempotent_enough():
 
 
 def test_numeric_dates_are_replaced():
-    out = replace_tokens("payment due on 9/30/01 or 2024-03-17, call 0800 123 456")
+    out = replace_tokens("payment due on 9/30/01 or 2024-03-17, ref 0800 123")
     assert out.count("DATE") == 2
-    assert "0800 123 456" in out
+    assert "0800 123" in out
+
+
+def test_phone_numbers_are_replaced():
+    out = replace_tokens("Call (713) 853-5849 or 713.646.2551 or +44 20 7946 0958 today")
+    assert out.count("PHONE") == 3
+    assert "713" not in out
+    # prices and short numbers stay
+    assert "$1,500" in replace_tokens("send $1,500 now")
 
 
 def test_upstream_filter_tags_and_scanner_footers_removed():

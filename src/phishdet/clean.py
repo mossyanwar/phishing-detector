@@ -125,6 +125,9 @@ _URL = re.compile(r"\b(?:https?://|www\.)[^\s<>\"'()\[\]{}]+", re.IGNORECASE)
 _EMAIL = re.compile(r"[\w.+\-]+@[\w\-]+(?:\.[\w\-]+)+")
 _IP_HOST = re.compile(r"^\d{1,3}(?:\.\d{1,3}){3}$")
 _YEAR = re.compile(r"\b(?:19[89]\d|20[0-3]\d)\b")
+# North American numbers like (713) 853-5849 and international +44 20 7946 0000.
+# Enron signatures made the Houston area code "713" a top legitimate feature.
+_PHONE = re.compile(r"(?:\+\d{1,3}[\s.\-]?)?\(?\b\d{3}\)?[\s.\-]\d{3}[\s.\-]\d{4}\b|\+\d{1,3}(?:[\s.\-]?\d){8,12}\b")
 _NUMERIC_DATE = re.compile(r"\b\d{1,4}[/.\-]\d{1,2}[/.\-]\d{2,4}\b")
 
 # The recipients' own organisations. In deployment you would put your own
@@ -161,6 +164,7 @@ def replace_tokens(text: str) -> str:
     text = _ORG_TOKENS.sub("ORGNAME", text)
     text = _RECIPIENT_TOKENS.sub("RECIPIENT", text)
     text = _NUMERIC_DATE.sub("DATE", text)
+    text = _PHONE.sub("PHONE", text)
     text = _YEAR.sub("YEAR", text)
     return text
 
