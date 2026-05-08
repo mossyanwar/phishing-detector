@@ -72,6 +72,7 @@ class Record:
     year: int | None
     text: str
     raw_text: str  # original headers + body (truncated), only for the leakage check
+    parsed_text: str  # subject + decoded body before cleaning, only for the leakage check
     has_html: bool
     origin: str
     meta: dict = field(default_factory=dict)
@@ -106,6 +107,7 @@ def build_records(emails: Iterable[RawEmail], max_chars: int = 4000) -> tuple[li
                 year=parsed.date.year if parsed.date else None,
                 text=text,
                 raw_text=_raw_view(em.raw),
+                parsed_text=f"Subject: {parsed.subject}\n\n{parsed.body}"[:max_chars],
                 has_html=parsed.has_html,
                 origin=em.origin,
             )

@@ -12,7 +12,7 @@ from phishdet.dataset import (
 
 
 def _rec(i, text, label, year=2020):
-    return Record(id=str(i), source="t", subset="t", label=label, year=year, text=text, raw_text="", has_html=False, origin=str(i))
+    return Record(id=str(i), source="t", subset="t", label=label, year=year, text=text, raw_text="", parsed_text="", has_html=False, origin=str(i))
 
 
 def test_language_check():
