@@ -30,8 +30,8 @@
     "spamassassin/spam_2": 1397
   },
   "near_duplicate_group_sizes": {
-    "1": 10672,
-    "2": 500,
+    "1": 10668,
+    "2": 501,
     "3": 132,
     "4": 76,
     "5": 37,
@@ -59,7 +59,7 @@
     "69": 1
   },
   "dropped": {
-    "enron:empty_body": 74,
+    "enron:empty_body": 76,
     "enron:exact_duplicate": 287,
     "enron:near_duplicate_over_cap": 86,
     "nazario:empty_body": 260,
@@ -67,19 +67,19 @@
     "nazario:near_duplicate_over_cap": 1049,
     "nazario:not_english": 258,
     "spamassassin:empty_body": 60,
-    "spamassassin:exact_duplicate": 176,
+    "spamassassin:exact_duplicate": 177,
     "spamassassin:near_duplicate_over_cap": 21,
     "spamassassin:not_english": 72,
     "spamassassin:spam_duplicates_main": 0
   },
   "final": {
-    "total": 12767,
+    "total": 12765,
     "by_label": {
-      "0": 7575,
+      "0": 7573,
       "1": 5192
     },
     "by_source_subset": {
-      "enron/inbox": 3553,
+      "enron/inbox": 3551,
       "nazario/phishing-2015": 235,
       "nazario/phishing-2016": 354,
       "nazario/phishing-2017": 255,
@@ -101,16 +101,16 @@
     },
     "by_split_label": {
       "test/0": 1515,
-      "test/1": 1039,
-      "train/0": 5302,
-      "train/1": 3634,
+      "test/1": 1038,
+      "train/0": 5300,
+      "train/1": 3635,
       "val/0": 758,
       "val/1": 519
     },
     "by_time_split_label": {
       "test/0": 1515,
       "test/1": 1480,
-      "train/0": 5302,
+      "train/0": 5300,
       "train/1": 3235,
       "unused/1": 15,
       "val/0": 758,
@@ -136,13 +136,13 @@
       "null": 3
     },
     "legit_by_year": {
-      "2001": 2877,
+      "2001": 2875,
       "2002": 4695,
       "2004": 1,
       "2020": 1,
       "2028": 1
     },
-    "spam_side_set": 1696,
+    "spam_side_set": 1695,
     "html_share_by_label": {
       "0": 0.023,
       "1": 0.956
