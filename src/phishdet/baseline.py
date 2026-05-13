@@ -125,6 +125,13 @@ class TfidfModel:
             for i in order
         ]
 
+    def contribution_totals(self, text: str) -> dict[str, float]:
+        """Sum of contributions per feature family (word / char) for one email."""
+        x = self.pipeline.named_steps["features"].transform([text]).tocsr()
+        contrib = x.data * self.coef[x.indices]
+        fams = np.array([n.split(":", 1)[0] for n in self.feature_names[x.indices]], dtype=object)
+        return {fam: float(contrib[fams == fam].sum()) for fam in ("word", "char")}
+
     def save(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         joblib.dump(self.pipeline, path, compress=3)
