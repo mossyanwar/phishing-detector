@@ -1,0 +1,13 @@
+From: "Account Services" <no-reply@secure-mail-verify.example>
+To: customer@example.org
+Subject: Your mailbox will be suspended
+Date: Wed, 13 May 2026 09:14:00 +0000
+Content-Type: text/html; charset=utf-8
+
+<html><body>
+<p>Dear user,</p>
+<p>We noticed unusual sign-in activity on your account. Your mailbox will be
+suspended within 24 hours unless you verify your account details.</p>
+<p><a href="http://192.0.2.15/webmail/verify.php">Verify your account now</a></p>
+<p>Thank you,<br>Email Security Team</p>
+</body></html>
