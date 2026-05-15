@@ -1,0 +1,24 @@
+{
+  "machine": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1360P",
+    "logical_cpus": 16,
+    "python": "3.12.3"
+  },
+  "n_emails": 300,
+  "parse_and_clean": {
+    "median_ms": 1.065510994521901,
+    "p95_ms": 2.4879840442736176,
+    "mean_ms": 1.4070994534995407
+  },
+  "models": {
+    "tfidf_lr": {
+      "single_email": {
+        "median_ms": 1.6032449930207804,
+        "p95_ms": 4.305830593511928,
+        "mean_ms": 1.943207450240152
+      },
+      "batch_total_s": 0.20712002900836524,
+      "batch_emails_per_s": 1448.4354865935418
+    }
+  }
+}
