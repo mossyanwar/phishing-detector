@@ -112,3 +112,16 @@ def full_report(
         str(p): precision_at_prevalence(at_low["recall"], at_low["fpr"], p) for p in prevalences
     }
     return out
+
+
+def wilson_interval(successes: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """95% Wilson score interval for a proportion; used for the small LLM sample."""
+    if n == 0:
+        return (0.0, 1.0)
+    p = successes / n
+    denom = 1 + z**2 / n
+    centre = (p + z**2 / (2 * n)) / denom
+    half = z * np.sqrt(p * (1 - p) / n + z**2 / (4 * n**2)) / denom
+    lo = 0.0 if successes == 0 else max(0.0, centre - half)
+    hi = 1.0 if successes == n else min(1.0, centre + half)
+    return (float(lo), float(hi))
