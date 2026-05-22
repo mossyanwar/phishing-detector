@@ -56,7 +56,8 @@ def main(argv: list[str] | None = None) -> int:
 
     results: dict[str, dict] = {}
     parts_by_name = {}
-    for csv_path in sorted(PRED.glob("*.csv")):
+    order = {m: i for i, m in enumerate(LABELS)}
+    for csv_path in sorted(PRED.glob("*.csv"), key=lambda p: (order.get(p.stem.rsplit("_", 1)[0], 99), p.stem)):
         name = csv_path.stem  # e.g. tfidf_lr_split
         model, split = name.rsplit("_", 1)
         parts = load_predictions(csv_path)
