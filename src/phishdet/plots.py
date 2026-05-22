@@ -141,7 +141,7 @@ def robustness(rows: list[dict], path: Path) -> None:
     """``rows``: dicts with model, perturbation, recall."""
     models = list(dict.fromkeys(r["model"] for r in rows))
     perts = list(dict.fromkeys(r["perturbation"] for r in rows))
-    fig, ax = plt.subplots(figsize=(6.4, 3.1))
+    fig, ax = plt.subplots(figsize=(6.4, 3.5))
     width = 0.8 / len(models)
     y = np.arange(len(perts))
     for i, m in enumerate(models):
@@ -151,7 +151,8 @@ def robustness(rows: list[dict], path: Path) -> None:
     ax.invert_yaxis()
     ax.set_xlim(0, 1.0)
     ax.set_xlabel("recall at the low-FPR threshold")
-    ax.set_title("Recall on perturbed test phishing")
-    ax.legend(loc="lower left")
+    ax.set_title("Recall on perturbed test phishing", loc="left")
+    if len(models) > 1:
+        ax.legend(loc="upper center", bbox_to_anchor=(0.35, -0.2), ncol=len(models))
     ax.grid(axis="y", visible=False)
     _save(fig, path)
