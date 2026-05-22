@@ -88,5 +88,95 @@
     "recall": 0.9691714836223507,
     "mean_score": 0.8841508991102878,
     "mean_score_change": -0.0334884121757748
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "none",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.9036608863198459,
+    "mean_score": 0.9105941653251648,
+    "mean_score_change": 0.0
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "homoglyphs (30% of letters)",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.9065510597302505,
+    "mean_score": 0.9133971929550171,
+    "mean_score_change": 0.0028030485846102238
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "zero-width spaces in words",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.9036608863198459,
+    "mean_score": 0.9105941653251648,
+    "mean_score_change": 0.0
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "leetspeak keywords",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.7870905587668593,
+    "mean_score": 0.8302172422409058,
+    "mean_score_change": -0.08037686347961426
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "URLs swapped for bit.ly",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.8998073217726397,
+    "mean_score": 0.9123682975769043,
+    "mean_score_change": 0.0017741898773238063
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "'RE:' added to subject",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.9046242774566474,
+    "mean_score": 0.909733235836029,
+    "mean_score_change": -0.0008608048665337265
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "legit text appended",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.7177263969171483,
+    "mean_score": 0.7964476346969604,
+    "mean_score_change": -0.11414648592472076
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "legit text prepended",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.6473988439306358,
+    "mean_score": 0.7363576292991638,
+    "mean_score_change": -0.17423640191555023
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "homoglyphs, no unicode normalisation",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.7572254335260116,
+    "mean_score": 0.8259804248809814,
+    "mean_score_change": -0.08461368083953857
+  },
+  {
+    "model": "MiniLM + LR",
+    "perturbation": "zero-width, no unicode normalisation",
+    "n": 1038,
+    "threshold": 0.7562450000000001,
+    "recall": 0.8978805394990366,
+    "mean_score": 0.9097925424575806,
+    "mean_score_change": -0.0008015393977984786
   }
 ]
