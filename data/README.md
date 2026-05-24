@@ -10,7 +10,7 @@ python scripts/prepare_data.py       # ~1 minute, ~0.6 GB RAM
 ```
 
 `data/checksums.sha256` lists the SHA-256 of every raw file used for the
-results in this repo (downloaded 2026-05-22). The Nazario yearly files are
+results in this repo (downloaded 2026-05-24). The Nazario yearly files are
 still updated by their maintainer, so a later download may differ.
 
 ## Sources

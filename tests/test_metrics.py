@@ -94,3 +94,13 @@ def test_full_report_keys():
     assert r["roc_auc"] == pytest.approx(0.75)
     assert r["at_low_fpr"]["fp"] == 0 and r["at_low_fpr"]["tp"] == 1
     assert set(r["at_low_fpr"]["precision_at_prevalence"]) == {"0.01", "0.1"}
+
+
+def test_wilson_interval():
+    from phishdet.metrics import wilson_interval
+
+    lo, hi = wilson_interval(95, 100)
+    assert lo == pytest.approx(0.8882, abs=1e-3) and hi == pytest.approx(0.9785, abs=1e-3)
+    assert wilson_interval(0, 0) == (0.0, 1.0)
+    lo, hi = wilson_interval(100, 100)
+    assert hi == 1.0 and lo < 1.0
