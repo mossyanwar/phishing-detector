@@ -23,9 +23,7 @@ from sklearn.metrics import average_precision_score
 
 from phishdet.dataset import by_split, load_jsonl
 from phishdet.embedding import ENCODER_NAME, ENCODER_REVISION, EmbeddingModel, embed, load_encoder
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from train_baseline import write_predictions  # noqa: E402
+from phishdet.evaluation import save_predictions
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "data" / "processed" / "minilm_embeddings.npz"
@@ -83,7 +81,7 @@ def main(argv: list[str] | None = None) -> int:
         name = f"minilm_lr_{split}"
         model.save(ROOT / "models" / name)
         scores = {p: model.predict_proba_embeddings(Xp) for p, Xp in X.items()}
-        write_predictions(ROOT / "results" / "predictions" / f"{name}.csv", {p: parts[p] for p in scores}, scores)
+        save_predictions(ROOT / "results" / "predictions" / f"{name}.csv", {p: parts[p] for p in scores}, scores)
         meta = {"model": "minilm_lr", "split": split, **config, "search": search, "n_train": int(len(y["train"]))}
         (ROOT / "results" / "predictions" / f"{name}.json").write_text(json.dumps(meta, indent=2) + "\n")
     return 0

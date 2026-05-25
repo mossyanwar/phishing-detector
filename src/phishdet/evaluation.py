@@ -30,6 +30,17 @@ class Part:
         return np.array(self.scores, dtype=float)
 
 
+def save_predictions(path: Path, parts: dict[str, list], scores: dict[str, np.ndarray]) -> None:
+    """Write one row per email: id, part (train/val/test/spam), label, score and source info."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["id", "part", "label", "score", "source", "subset", "year"])
+        for part, recs in parts.items():
+            for r, s in zip(recs, scores[part]):
+                w.writerow([r.id, part, r.label, f"{s:.6f}", r.source, r.subset, r.year if r.year else ""])
+
+
 def load_predictions(path: Path) -> dict[str, Part]:
     parts: dict[str, Part] = defaultdict(Part)
     with path.open(newline="") as f:

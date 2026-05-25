@@ -14,7 +14,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import sys
 import time
@@ -25,18 +24,9 @@ from sklearn.metrics import average_precision_score
 
 from phishdet.baseline import TfidfModel
 from phishdet.dataset import by_split, load_jsonl
+from phishdet.evaluation import save_predictions
 
 ROOT = Path(__file__).resolve().parents[1]
-
-
-def write_predictions(path: Path, parts: dict[str, list], scores: dict[str, np.ndarray]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["id", "part", "label", "score", "source", "subset", "year"])
-        for part, recs in parts.items():
-            for r, s in zip(recs, scores[part]):
-                w.writerow([r.id, part, r.label, f"{s:.6f}", r.source, r.subset, r.year if r.year else ""])
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -69,7 +59,7 @@ def main(argv: list[str] | None = None) -> int:
     name = f"tfidf_lr_{args.split}"
     model.save(ROOT / "models" / f"{name}.joblib")
     scores = {p: model.predict_proba([r.text for r in recs]) for p, recs in parts.items() if recs}
-    write_predictions(ROOT / "results" / "predictions" / f"{name}.csv", {p: parts[p] for p in scores}, scores)
+    save_predictions(ROOT / "results" / "predictions" / f"{name}.csv", {p: parts[p] for p in scores}, scores)
     meta = {
         "model": "tfidf_lr",
         "split": args.split,
