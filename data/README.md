@@ -28,8 +28,10 @@ Not used:
 * `20051114.mbox`, which overlaps in time with `phishing1.mbox`.
 * Kaggle/Hugging Face "phishing email" CSVs (for example
   `zefang-liu/phishing-email-dataset`, LGPL-3.0). They are convenient, but they
-  are re-packagings of the same public corpora with the headers and provenance
-  stripped, so the leakage problems below cannot be inspected or fixed.
+  mix older public corpora without a per-row source or any headers (the first
+  row of that file is linguistics-list mail in the Ling-Spam style, already
+  lower-cased and tokenised), so the leakage problems below cannot be
+  inspected or fixed.
 
 Because none of this data is redistributed here, the licences above only
 govern your own download. The report quotes a handful of short, trimmed
