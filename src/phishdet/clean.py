@@ -137,7 +137,11 @@ _ORG_TOKENS = re.compile(
     r"spamassassin\.taint\.org|taint\.org|jmason\.org|monkey\.org|\bdomain\.com|enron\.com|\benron\b",
     re.IGNORECASE,
 )
-# The owner of the phishing corpus, who is the recipient of most of it.
+# The owner of the phishing corpus, who is the recipient of most of it. His
+# name is mapped to the same NAME placeholder used for other personal names
+# (Lotus Notes addresses), not to a token of its own: a dedicated RECIPIENT
+# token ended up in 9.5% of phishing and 0.1% of legitimate mail, because only
+# this one recipient's name was being replaced.
 _RECIPIENT_TOKENS = re.compile(r"(?<!san )\b(?:jose|nazario)\b", re.IGNORECASE)
 
 
@@ -162,7 +166,7 @@ def replace_tokens(text: str) -> str:
     text = _EMAIL.sub(" EMAIL ", text)
     text = _NOTES_ADDRESS.sub(" NAME ", text)
     text = _ORG_TOKENS.sub("ORGNAME", text)
-    text = _RECIPIENT_TOKENS.sub("RECIPIENT", text)
+    text = _RECIPIENT_TOKENS.sub("NAME", text)
     text = _NUMERIC_DATE.sub("DATE", text)
     text = _PHONE.sub("PHONE", text)
     text = _YEAR.sub("YEAR", text)

@@ -39,7 +39,7 @@ def test_emails_years_and_recipient_tokens():
     out = replace_tokens("Dear jose, write to help@bank.example by 2024. Enron staff at monkey.org")
     assert "EMAIL" in out and "help@bank.example" not in out
     assert "YEAR" in out and "2024" not in out
-    assert "RECIPIENT" in out and "jose" not in out
+    assert "Dear NAME" in out and "jose" not in out
     assert out.count("ORGNAME") == 2
 
 
