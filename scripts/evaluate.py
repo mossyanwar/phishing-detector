@@ -93,6 +93,14 @@ def main(argv: list[str] | None = None) -> int:
             key = "fpr_at_low_fpr" if g.startswith("legit") else "recall_at_low_fpr"
             what = "FPR" if g.startswith("legit") else "recall"
             lines.append(f"| {LABELS.get(r['model'], r['model'])} | {g} | {v['n']} | {what} {v[key]:.1%} |")
+    lines += ["", "## Uncertain band: test emails scored between 0.1 and 0.9", "",
+              "| model | split | share of test | errors @0.5 inside band | error rate outside band |", "|---|---|---|---|---|"]
+    for name, r in results.items():
+        b = r["uncertain_band_0.1_0.9"]
+        lines.append(
+            f"| {LABELS.get(r['model'], r['model'])} | {r['split']} | {b['share_of_test']:.1%} | "
+            f"{b['errors_at_0.5_in_band']} of {b['errors_at_0.5_total']} | {b['error_rate_outside_band']:.2%} |"
+        )
     lines += ["", "## SpamAssassin spam side set (never trained on)", "", "| model | split | n | flagged @thr | flagged @0.5 | median score |", "|---|---|---|---|---|---|"]
     for name, r in results.items():
         sp = r.get("spam_side_set")

@@ -148,6 +148,12 @@
         "recall_at_low_fpr": 0.9878048780487805
       }
     },
+    "uncertain_band_0.1_0.9": {
+      "share_of_test": 0.1934978456717587,
+      "errors_at_0.5_in_band": 45,
+      "errors_at_0.5_total": 48,
+      "error_rate_outside_band": 0.0014570179698882952
+    },
     "spam_side_set": {
       "n": 1695,
       "flagged_at_low_fpr": 0.17168141592920355,
@@ -261,6 +267,12 @@
         "n": 1,
         "recall_at_low_fpr": 1.0
       }
+    },
+    "uncertain_band_0.1_0.9": {
+      "share_of_test": 0.36460767946577627,
+      "errors_at_0.5_in_band": 154,
+      "errors_at_0.5_total": 165,
+      "error_rate_outside_band": 0.005780346820809248
     },
     "spam_side_set": {
       "n": 1695,
@@ -418,6 +430,12 @@
         "recall_at_low_fpr": 0.9390243902439024
       }
     },
+    "uncertain_band_0.1_0.9": {
+      "share_of_test": 0.19898159028593812,
+      "errors_at_0.5_in_band": 94,
+      "errors_at_0.5_total": 110,
+      "error_rate_outside_band": 0.007823960880195598
+    },
     "spam_side_set": {
       "n": 1695,
       "flagged_at_low_fpr": 0.10619469026548672,
@@ -531,6 +549,12 @@
         "n": 1,
         "recall_at_low_fpr": 1.0
       }
+    },
+    "uncertain_band_0.1_0.9": {
+      "share_of_test": 0.25075125208681137,
+      "errors_at_0.5_in_band": 155,
+      "errors_at_0.5_total": 201,
+      "error_rate_outside_band": 0.020499108734402853
     },
     "spam_side_set": {
       "n": 1695,

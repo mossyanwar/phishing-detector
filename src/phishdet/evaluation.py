@@ -94,6 +94,17 @@ def evaluate(parts: dict[str, Part], target_fpr: float = 0.01) -> dict:
         for yr, idx in sorted(years.items())
     }
 
+    # how much traffic a cascade would pass on to a slower, costlier second
+    # opinion (e.g. an LLM) if it only escalated the uncertain middle band
+    err = (s >= 0.5).astype(int) != y
+    band = (s >= 0.1) & (s < 0.9)
+    report["uncertain_band_0.1_0.9"] = {
+        "share_of_test": float(band.mean()),
+        "errors_at_0.5_in_band": int(err[band].sum()),
+        "errors_at_0.5_total": int(err.sum()),
+        "error_rate_outside_band": float(err[~band].mean()) if (~band).any() else 0.0,
+    }
+
     if "spam" in parts:
         sp = parts["spam"].s
         report["spam_side_set"] = {
