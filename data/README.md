@@ -47,12 +47,12 @@ excerpts with addresses and names removed.
    Date header in phishing is often forged), otherwise the Date header.
 2. **Clean** (`src/phishdet/clean.py`), described under Leakage below.
 3. **Drop** messages with fewer than 30 characters of body text after cleaning
-   (394, mostly image-only or attachment-only phishing) and non-English messages
+   (396, mostly image-only or attachment-only phishing) and non-English messages
    (330 including spam; a simple function-word comparison against six other
    languages plus a non-Latin script check).
-4. **Exact dedupe** on the cleaned text, ignoring case and punctuation (1,742 removed).
+4. **Exact dedupe** on the cleaned text, ignoring case and punctuation (1,743 removed).
 5. **Near-duplicate groups.** Word 3-gram shingles, cosine similarity >= 0.8,
-   union-find into groups. 10,672 messages had no near-duplicate; the largest
+   union-find into groups. 10,668 messages had no near-duplicate; the largest
    group (one PayPal phishing campaign) had 69 members. Each group is capped at 3
    members (1,156 removed, 1,049 of them phishing) so a single campaign cannot
    dominate training or test, and groups with mixed labels would be dropped
@@ -71,11 +71,11 @@ Final dataset:
 
 | | legitimate | phishing |
 |---|---|---|
-| total | 7,575 (SpamAssassin 4,022, Enron 3,553) | 5,192 |
-| stratified train / val / test | 5,302 / 758 / 1,515 | 3,634 / 519 / 1,039 |
-| time split train / val / test | 5,302 / 758 / 1,515 | 3,235 / 462 / 1,480 |
+| total | 7,573 (SpamAssassin 4,022, Enron 3,551) | 5,192 |
+| stratified train / val / test | 5,300 / 758 / 1,515 | 3,635 / 519 / 1,038 |
+| time split train / val / test | 5,300 / 758 / 1,515 | 3,235 / 462 / 1,480 |
 
-1,696 SpamAssassin spam messages are kept aside (never trained on) to see what
+1,695 SpamAssassin spam messages are kept aside (never trained on) to see what
 the phishing models make of ordinary spam.
 
 ## Leakage
@@ -94,11 +94,12 @@ features of each. What the cleaning does, and why:
 | Email addresses | Obfuscated addresses differ per corpus. | Replaced with `EMAIL`. |
 | URLs | Full URLs are long, unique and noisy. | Replaced with `url:<host>`, keeping the host because the host is a real signal (`url:ip-address` for raw IPs). |
 | Years and numeric dates | 2001-2002 for legitimate mail vs 2004-2025 for phishing. | Replaced with `YEAR` / `DATE`. |
+| Phone numbers | Enron signatures are full of Houston numbers; after the first round of cleaning the area code `713` was one of the strongest "legitimate" features. | Replaced with `PHONE`. (Also personal data.) |
 | Mailing-list footers, `[ILUG]`-style subject tags, `-- ` signatures | Most SpamAssassin ham is mailing-list traffic. | Short trailing footers and signatures are cut; single-word list tags are removed from subjects. |
 | Quoted replies (`>` lines, "On ... wrote:"), forwarded headers, Lotus Notes addresses (`Name/HOU/ECT@ECT`) | Ham is full of reply chains and Enron's Notes formatting; phishing almost never is. | Removed. |
-| HTML | 95.5% of phishing has an HTML part vs 2.3% of legitimate mail. | Bodies are converted to text the same way for both classes, and link targets are written bare, not in a format that marks the text as converted HTML. The share itself is not given to the models. |
+| HTML | 95.6% of phishing has an HTML part vs 2.3% of legitimate mail. | Bodies are converted to text the same way for both classes, and link targets are written bare, not in a format that marks the text as converted HTML. The share itself is not given to the models. |
 | Language | All legitimate mail is English; about 3% of the phishing is not. | Non-English messages are dropped from both classes. |
-| Broken charset decoding | Decoding with the declared charset and `errors="replace"` left U+FFFD replacement characters in 605 phishing messages but only 47 legitimate ones, because phishing more often declares the wrong charset. | Strict decoding with UTF-8, Windows-1252 and Latin-1 fallbacks for bodies and subjects; any remaining U+FFFD is removed. |
+| Broken charset decoding | Before this was fixed, decoding with the declared charset and `errors="replace"` left U+FFFD replacement characters in 605 phishing messages but only 47 legitimate ones, because phishing more often declares the wrong charset. | Strict decoding with UTF-8, Windows-1252 and Latin-1 fallbacks for bodies and subjects; any remaining U+FFFD is removed. |
 | Tags added by the receiving mail system | Some of Nazario's mail passed through filters that rewrote the subject (`[*** POSIBLE SPAM***]`, `****SPAM(5.0)****`, `[EXTERNAL EMAIL - USE CAUTION]`) or appended "scanned by ..." footers. That is another filter's verdict, not a property of the email. | Removed from subjects and bodies. |
 | Line wrapping, whitespace | Plain-text ham is wrapped at ~72 columns. | Whitespace is collapsed; the TF-IDF features cannot see line breaks. |
 | Unicode tricks (zero-width spaces, homoglyphs) | Not a leak, but obfuscation. | NFKC normalisation, zero-width characters removed, Cyrillic/Greek look-alikes mapped to Latin inside mixed-script words. |
