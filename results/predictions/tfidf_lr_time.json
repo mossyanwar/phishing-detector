@@ -5,28 +5,28 @@
   "search": [
     {
       "C": 1.0,
-      "val_average_precision": 0.997853560666165,
-      "fit_seconds": 14.420750064004096
+      "val_average_precision": 0.9978927147848398,
+      "fit_seconds": 14.748565474001225
     },
     {
       "C": 3.0,
-      "val_average_precision": 0.9981847050483553,
-      "fit_seconds": 19.155868080997607
+      "val_average_precision": 0.9982235244659856,
+      "fit_seconds": 13.733076282995171
     },
     {
       "C": 10.0,
-      "val_average_precision": 0.998336459563499,
-      "fit_seconds": 16.703728459004196
+      "val_average_precision": 0.9983837707599958,
+      "fit_seconds": 15.652166561994818
     },
     {
       "C": 30.0,
-      "val_average_precision": 0.9984246642738248,
-      "fit_seconds": 16.218567784992047
+      "val_average_precision": 0.9984676838735504,
+      "fit_seconds": 14.74696717999177
     },
     {
       "C": 100.0,
-      "val_average_precision": 0.9984793234252989,
-      "fit_seconds": 17.513104179990478
+      "val_average_precision": 0.9985246166741932,
+      "fit_seconds": 16.705308028002037
     }
   ],
   "n_features": 250000,

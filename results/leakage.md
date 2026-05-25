@@ -7,7 +7,7 @@ Threshold set for 1% FPR on validation.
 |---|---|---|---|---|
 | raw | 1.0000 | 1.0000 | 1.0000 | 0.73% |
 | parsed | 0.9995 | 0.9993 | 0.9884 | 1.19% |
-| cleaned | 0.9984 | 0.9980 | 0.9817 | 1.32% |
+| cleaned | 0.9984 | 0.9980 | 0.9817 | 1.25% |
 
 ## Top features, raw
 
@@ -63,23 +63,23 @@ Threshold set for 1% FPR on validation.
 
 | towards phishing | weight | towards legitimate | weight |
 |---|---|---|---|
-| `word:your` | 4.22 | `word:subject re` | -3.32 |
-| `word:account` | 3.89 | `word:the` | -2.75 |
-| `word:ebay` | 2.88 | `word:re` | -2.60 |
+| `word:your` | 4.21 | `word:subject re` | -3.30 |
+| `word:account` | 3.91 | `word:the` | -2.75 |
+| `word:ebay` | 2.87 | `word:re` | -2.60 |
 | `word:your account` | 2.69 | `char: i ` | -2.23 |
-| `word:bank` | 2.53 | `word:url` | -1.97 |
-| `word:email` | 2.43 | `word:at` | -1.93 |
-| `word:she` | 2.29 | `char:re: ` | -1.89 |
-| `word:dear` | 2.25 | `word:phone` | -1.89 |
+| `word:bank` | 2.53 | `word:url` | -1.99 |
+| `word:email` | 2.46 | `word:at` | -1.94 |
+| `word:she` | 2.30 | `word:phone` | -1.90 |
+| `word:dear` | 2.29 | `char:re: ` | -1.88 |
 | `word:he` | 2.25 | `char: re: ` | -1.88 |
-| `word:update` | 2.06 | `char: re:` | -1.83 |
-| `char: ur` | 1.95 | `char:re:` | -1.83 |
-| `word:notification` | 1.89 | `word:me` | -1.78 |
-| `char:your ` | 1.89 | `char:the` | -1.65 |
-| `char:your` | 1.89 | `char: th` | -1.63 |
-| `char: your` | 1.84 | `char: the` | -1.58 |
-| `word:view` | 1.84 | `word:url:newsisfree.com` | -1.56 |
+| `word:update` | 2.05 | `char: re:` | -1.82 |
+| `char: ur` | 1.97 | `char:re:` | -1.82 |
+| `word:notification` | 1.89 | `word:me` | -1.80 |
+| `char:your` | 1.89 | `char:the` | -1.65 |
+| `char:your ` | 1.89 | `char: th` | -1.63 |
+| `word:view` | 1.85 | `char: the` | -1.59 |
+| `char: your` | 1.84 | `word:url:newsisfree.com` | -1.56 |
 | `word:her` | 1.83 | `word:url url:newsisfree.com` | -1.48 |
-| `char: url:` | 1.79 | `char:e: ` | -1.45 |
-| `char:rl:` | 1.79 | `word:is` | -1.44 |
-| `char:url:` | 1.79 | `char:the ` | -1.40 |
+| `char: url:` | 1.82 | `char:e: ` | -1.45 |
+| `char:rl:` | 1.82 | `word:is` | -1.42 |
+| `char:url:` | 1.82 | `char:the ` | -1.41 |

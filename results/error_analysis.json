@@ -1,6 +1,6 @@
 {
   "tfidf_lr": {
-    "threshold": 0.44032600000000005,
+    "threshold": 0.43894500000000003,
     "n_false_positives": 20,
     "n_false_negatives": 23,
     "false_positives_by_source": {
@@ -14,7 +14,7 @@
     "false_positives": [
       {
         "id": "43f3dfad51039ccd",
-        "score": 0.8193381682055239,
+        "score": 0.8233480368005256,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -25,11 +25,11 @@
           ],
           [
             "word:payment",
-            0.162
+            0.163
           ],
           [
             "word:account",
-            0.113
+            0.114
           ],
           [
             "word:online",
@@ -47,7 +47,7 @@
       },
       {
         "id": "2b8a5b6f2409447a",
-        "score": 0.7758321755221003,
+        "score": 0.7796788113684697,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -57,30 +57,30 @@
             0.167
           ],
           [
-            "word:account",
-            0.107
+            "word:phone",
+            -0.108
           ],
           [
-            "word:phone",
-            -0.107
+            "word:account",
+            0.108
           ],
           [
             "word:email",
-            0.093
+            0.094
           ],
           [
             "word:at",
-            -0.087
+            -0.088
           ],
           [
             "word:view",
-            0.074
+            0.075
           ]
         ]
       },
       {
         "id": "0fa08117644a6feb",
-        "score": 0.6793233023088845,
+        "score": 0.6980841924470516,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -91,7 +91,7 @@
           ],
           [
             "word:item",
-            0.122
+            0.121
           ],
           [
             "word:order",
@@ -107,13 +107,13 @@
           ],
           [
             "word:service",
-            0.068
+            0.069
           ]
         ]
       },
       {
         "id": "6b5786c035602ac8",
-        "score": 0.6583419602781204,
+        "score": 0.6605881113796437,
         "source": "enron",
         "subset": "inbox",
         "year": 2002,
@@ -128,11 +128,11 @@
           ],
           [
             "word:confirm",
-            0.152
+            0.155
           ],
           [
             "word:urgent",
-            0.137
+            0.138
           ],
           [
             "word:at",
@@ -140,13 +140,46 @@
           ],
           [
             "word:test",
-            -0.068
+            -0.069
+          ]
+        ]
+      },
+      {
+        "id": "5432530dc4bc7a45",
+        "score": 0.6595926230921407,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2002,
+        "top_features": [
+          [
+            "word:your",
+            0.18
+          ],
+          [
+            "word:password",
+            0.13
+          ],
+          [
+            "word:phone",
+            -0.116
+          ],
+          [
+            "word:call",
+            -0.077
+          ],
+          [
+            "word:dear",
+            0.07
+          ],
+          [
+            "word:confirm",
+            0.058
           ]
         ]
       },
       {
         "id": "bca7215627c86406",
-        "score": 0.650708511732793,
+        "score": 0.6555869032086858,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -165,11 +198,11 @@
           ],
           [
             "word:document",
-            0.073
+            0.074
           ],
           [
             "word:email",
-            0.069
+            0.07
           ],
           [
             "word:statement",
@@ -178,41 +211,8 @@
         ]
       },
       {
-        "id": "5432530dc4bc7a45",
-        "score": 0.6500159381300255,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2002,
-        "top_features": [
-          [
-            "word:your",
-            0.18
-          ],
-          [
-            "word:password",
-            0.129
-          ],
-          [
-            "word:phone",
-            -0.115
-          ],
-          [
-            "word:call",
-            -0.076
-          ],
-          [
-            "word:dear",
-            0.069
-          ],
-          [
-            "word:confirm",
-            0.057
-          ]
-        ]
-      },
-      {
         "id": "805458f5919819dd",
-        "score": 0.612472996089693,
+        "score": 0.6185639044061026,
         "source": "spamassassin",
         "subset": "hard_ham",
         "year": 2002,
@@ -223,7 +223,7 @@
           ],
           [
             "word:email",
-            0.134
+            0.135
           ],
           [
             "word:list",
@@ -231,11 +231,11 @@
           ],
           [
             "word:account",
-            0.093
+            0.094
           ],
           [
             "word:your email",
-            0.091
+            0.092
           ],
           [
             "word:this email",
@@ -244,48 +244,48 @@
         ]
       },
       {
-        "id": "8e3a268797a12f01",
-        "score": 0.6007995598603507,
+        "id": "6be70339081051ce",
+        "score": 0.5989704370640927,
         "source": "enron",
         "subset": "inbox",
-        "year": 2001,
+        "year": 2002,
         "top_features": [
           [
-            "word:width",
-            0.055
+            "word:the",
+            -0.071
           ],
           [
-            "word:height",
-            0.052
-          ],
-          [
-            "word:td",
-            0.042
-          ],
-          [
-            "word:tr",
-            0.037
-          ],
-          [
-            "word:border",
-            0.033
+            "word:message",
+            0.069
           ],
           [
             "word:your",
-            0.031
+            0.063
+          ],
+          [
+            "word:this message",
+            0.051
+          ],
+          [
+            "word:sender",
+            0.041
+          ],
+          [
+            "word:is",
+            -0.038
           ]
         ]
       },
       {
         "id": "5070e88be82c221d",
-        "score": 0.5929377263413209,
+        "score": 0.5984240297150956,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
         "top_features": [
           [
             "word:view",
-            0.214
+            0.216
           ],
           [
             "word:your",
@@ -293,7 +293,7 @@
           ],
           [
             "word:click",
-            0.119
+            0.117
           ],
           [
             "word:the",
@@ -310,8 +310,107 @@
         ]
       },
       {
+        "id": "bef3aa85a1179b68",
+        "score": 0.5970400588556112,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001,
+        "top_features": [
+          [
+            "word:account",
+            0.096
+          ],
+          [
+            "word:your",
+            0.071
+          ],
+          [
+            "word:payment",
+            0.065
+          ],
+          [
+            "word:phone",
+            -0.057
+          ],
+          [
+            "word:credit",
+            0.056
+          ],
+          [
+            "word:shared",
+            0.054
+          ]
+        ]
+      },
+      {
+        "id": "8e3a268797a12f01",
+        "score": 0.5935754793821733,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001,
+        "top_features": [
+          [
+            "word:width",
+            0.054
+          ],
+          [
+            "word:height",
+            0.052
+          ],
+          [
+            "word:td",
+            0.042
+          ],
+          [
+            "word:tr",
+            0.037
+          ],
+          [
+            "word:border",
+            0.032
+          ],
+          [
+            "word:your",
+            0.031
+          ]
+        ]
+      },
+      {
+        "id": "ab1737a2f5680d81",
+        "score": 0.5891742366167191,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001,
+        "top_features": [
+          [
+            "word:your",
+            0.153
+          ],
+          [
+            "word:customer",
+            0.153
+          ],
+          [
+            "word:service",
+            0.112
+          ],
+          [
+            "word:customer service",
+            0.07
+          ],
+          [
+            "word:the",
+            -0.066
+          ],
+          [
+            "word:password",
+            0.058
+          ]
+        ]
+      },
+      {
         "id": "3ea227408e70829a",
-        "score": 0.5888684314098177,
+        "score": 0.5863404843153559,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -322,7 +421,7 @@
           ],
           [
             "word:password",
-            0.199
+            0.201
           ],
           [
             "word:subject re",
@@ -343,41 +442,8 @@
         ]
       },
       {
-        "id": "ab1737a2f5680d81",
-        "score": 0.5868263249361528,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001,
-        "top_features": [
-          [
-            "word:customer",
-            0.153
-          ],
-          [
-            "word:your",
-            0.153
-          ],
-          [
-            "word:service",
-            0.111
-          ],
-          [
-            "word:customer service",
-            0.07
-          ],
-          [
-            "word:the",
-            -0.066
-          ],
-          [
-            "word:password",
-            0.057
-          ]
-        ]
-      },
-      {
         "id": "555fa000a7d3ab47",
-        "score": 0.5829991234601282,
+        "score": 0.5789217689877928,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -388,7 +454,7 @@
           ],
           [
             "word:password",
-            0.109
+            0.11
           ],
           [
             "word:the",
@@ -396,7 +462,7 @@
           ],
           [
             "word:com",
-            -0.055
+            -0.056
           ],
           [
             "char:---",
@@ -409,41 +475,8 @@
         ]
       },
       {
-        "id": "bef3aa85a1179b68",
-        "score": 0.5760045733154902,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001,
-        "top_features": [
-          [
-            "word:account",
-            0.095
-          ],
-          [
-            "word:your",
-            0.071
-          ],
-          [
-            "word:payment",
-            0.065
-          ],
-          [
-            "word:credit",
-            0.057
-          ],
-          [
-            "word:phone",
-            -0.056
-          ],
-          [
-            "word:shared",
-            0.053
-          ]
-        ]
-      },
-      {
         "id": "c67a6ed0aa2350e0",
-        "score": 0.5719838820141668,
+        "score": 0.5788589238015653,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -454,7 +487,7 @@
           ],
           [
             "word:email",
-            0.156
+            0.158
           ],
           [
             "char:your ",
@@ -470,13 +503,13 @@
           ],
           [
             "word:you",
-            0.068
+            0.069
           ]
         ]
       },
       {
         "id": "e3cd02b20b1cd8e2",
-        "score": 0.5540596451486771,
+        "score": 0.553612538811924,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -491,11 +524,11 @@
           ],
           [
             "word:email",
-            0.062
+            0.063
           ],
           [
             "word:view",
-            0.059
+            0.06
           ],
           [
             "word:image image",
@@ -508,41 +541,8 @@
         ]
       },
       {
-        "id": "6be70339081051ce",
-        "score": 0.5511103110284843,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2002,
-        "top_features": [
-          [
-            "word:the",
-            -0.071
-          ],
-          [
-            "word:message",
-            0.067
-          ],
-          [
-            "word:your",
-            0.063
-          ],
-          [
-            "word:this message",
-            0.051
-          ],
-          [
-            "word:is",
-            -0.039
-          ],
-          [
-            "word:sender",
-            0.038
-          ]
-        ]
-      },
-      {
         "id": "7bd1f09834abfc12",
-        "score": 0.5379466974134737,
+        "score": 0.5317282207026166,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -553,7 +553,7 @@
           ],
           [
             "word:email",
-            0.066
+            0.067
           ],
           [
             "word:the",
@@ -569,13 +569,13 @@
           ],
           [
             "word:your email",
-            0.052
+            0.053
           ]
         ]
       },
       {
         "id": "ee7e9918e1197416",
-        "score": 0.5313903371579419,
+        "score": 0.5268237690764441,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -590,7 +590,7 @@
           ],
           [
             "word:customer",
-            0.093
+            0.092
           ],
           [
             "word:list",
@@ -598,7 +598,7 @@
           ],
           [
             "word:service",
-            0.076
+            0.077
           ],
           [
             "word:details",
@@ -607,41 +607,8 @@
         ]
       },
       {
-        "id": "7b459afb045abc68",
-        "score": 0.4820175264005271,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001,
-        "top_features": [
-          [
-            "word:your",
-            0.171
-          ],
-          [
-            "word:recipient",
-            0.137
-          ],
-          [
-            "word:list",
-            -0.111
-          ],
-          [
-            "word:dec year",
-            0.092
-          ],
-          [
-            "word:message",
-            0.087
-          ],
-          [
-            "word:0500",
-            0.084
-          ]
-        ]
-      },
-      {
         "id": "e93906998c2193d5",
-        "score": 0.472917693404618,
+        "score": 0.4678290415829326,
         "source": "enron",
         "subset": "inbox",
         "year": 2001,
@@ -652,15 +619,15 @@
           ],
           [
             "word:id",
-            0.107
+            0.106
           ],
           [
             "word:below",
-            0.083
+            0.084
           ],
           [
             "word:the",
-            -0.075
+            -0.076
           ],
           [
             "word:access",
@@ -671,45 +638,78 @@
             -0.051
           ]
         ]
+      },
+      {
+        "id": "a1dd3703a78f4432",
+        "score": 0.4465048761055349,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001,
+        "top_features": [
+          [
+            "word:email",
+            0.141
+          ],
+          [
+            "word:your",
+            0.123
+          ],
+          [
+            "word:the",
+            -0.066
+          ],
+          [
+            "word:folders",
+            -0.064
+          ],
+          [
+            "word:policy",
+            0.058
+          ],
+          [
+            "word:mailbox",
+            0.048
+          ]
+        ]
       }
     ],
     "false_negatives": [
       {
         "id": "3bf0822a49834afa",
-        "score": 0.06758892215720272,
+        "score": 0.06727754943273297,
         "source": "nazario",
         "subset": "phishing-2025",
         "year": 2025,
         "top_features": [
           [
             "word:me",
-            -0.167
+            -0.169
           ],
           [
             "word:let me",
-            -0.129
+            -0.13
           ],
           [
             "word:me know",
-            -0.128
+            -0.129
           ],
           [
             "word:know",
-            -0.097
+            -0.098
           ],
           [
             "word:cheers",
             -0.089
           ],
           [
-            "word:know if",
+            "word:let",
             -0.088
           ]
         ]
       },
       {
         "id": "e7a7ba9f6e7a9601",
-        "score": 0.07116788800794391,
+        "score": 0.07151263771628992,
         "source": "nazario",
         "subset": "phishing-2024",
         "year": 2024,
@@ -720,7 +720,7 @@
           ],
           [
             "word:your",
-            0.072
+            0.073
           ],
           [
             "word:delivery date",
@@ -735,14 +735,14 @@
             -0.034
           ],
           [
-            "word:next delivery",
-            0.032
+            "word:that",
+            -0.032
           ]
         ]
       },
       {
         "id": "c81bb8fd4bd865cb",
-        "score": 0.08332212782288678,
+        "score": 0.08492125765744324,
         "source": "nazario",
         "subset": "phishing-2024",
         "year": 2024,
@@ -753,7 +753,7 @@
           ],
           [
             "word:email",
-            0.098
+            0.099
           ],
           [
             "word:the",
@@ -761,73 +761,73 @@
           ],
           [
             "word:shared",
-            0.058
+            0.059
           ],
           [
             "word:is",
-            -0.04
+            -0.039
           ],
           [
             "word:year",
-            0.038
+            0.039
           ]
         ]
       },
       {
         "id": "79b7bb79c80143da",
-        "score": 0.12172850658691665,
+        "score": 0.11999036145579263,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2005,
         "top_features": [
           [
+            "word:com",
+            -0.065
+          ],
+          [
             "word:weekly",
             -0.065
           ],
           [
-            "word:com",
-            -0.064
-          ],
-          [
             "word:databases",
-            0.045
+            0.044
           ],
           [
             "word:example",
             -0.044
           ],
           [
-            "word:output",
+            "word:database",
             -0.037
           ],
           [
-            "word:database",
-            -0.035
+            "word:output",
+            -0.037
           ]
         ]
       },
       {
         "id": "28e0409d54566bd0",
-        "score": 0.14365130308736382,
+        "score": 0.14585323400685243,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
         "top_features": [
           [
             "word:email",
-            0.231
+            0.234
           ],
           [
             "word:subject re",
-            -0.22
+            -0.219
           ],
           [
             "word:re",
-            -0.154
+            -0.153
           ],
           [
             "word:privately please",
-            0.113
+            0.112
           ],
           [
             "word:it",
@@ -841,14 +841,14 @@
       },
       {
         "id": "055adfc49c0acd94",
-        "score": 0.1557679718277561,
+        "score": 0.1533977361507109,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
         "top_features": [
           [
             "word:me",
-            -0.043
+            -0.044
           ],
           [
             "word:details",
@@ -874,18 +874,18 @@
       },
       {
         "id": "3b7e0b89a470add5",
-        "score": 0.15763128590927208,
+        "score": 0.1582595465486024,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
         "top_features": [
           [
             "word:subject re",
-            -0.457
+            -0.456
           ],
           [
             "word:re",
-            -0.32
+            -0.319
           ],
           [
             "word:best",
@@ -907,14 +907,14 @@
       },
       {
         "id": "825ea077c4013a8f",
-        "score": 0.16727699795950152,
+        "score": 0.16465458737268018,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2006,
         "top_features": [
           [
             "word:account",
-            0.102
+            0.103
           ],
           [
             "word:your",
@@ -926,7 +926,7 @@
           ],
           [
             "word:email",
-            0.065
+            0.066
           ],
           [
             "word:his",
@@ -940,7 +940,7 @@
       },
       {
         "id": "bcad7b5d0fedacb4",
-        "score": 0.17246538210136808,
+        "score": 0.17243538534844094,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
@@ -959,7 +959,7 @@
           ],
           [
             "word:at",
-            -0.055
+            -0.056
           ],
           [
             "word:online",
@@ -972,48 +972,15 @@
         ]
       },
       {
-        "id": "cad7d4c35d718952",
-        "score": 0.2243213000596728,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006,
-        "top_features": [
-          [
-            "word:your",
-            0.168
-          ],
-          [
-            "word:payment",
-            0.099
-          ],
-          [
-            "char:...",
-            -0.071
-          ],
-          [
-            "word:the",
-            -0.066
-          ],
-          [
-            "word:our",
-            0.059
-          ],
-          [
-            "word:dear",
-            0.051
-          ]
-        ]
-      },
-      {
         "id": "2edefc23019ac8a9",
-        "score": 0.22711062847165228,
+        "score": 0.2272471399889099,
         "source": "nazario",
         "subset": "phishing-2023",
         "year": 2023,
         "top_features": [
           [
             "word:the",
-            -0.081
+            -0.082
           ],
           [
             "word:your",
@@ -1033,13 +1000,13 @@
           ],
           [
             "word:delivery date",
-            0.04
+            0.039
           ]
         ]
       },
       {
         "id": "347c92a5c9c17470",
-        "score": 0.22932646043789806,
+        "score": 0.22814698270307057,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
@@ -1061,18 +1028,51 @@
             -0.042
           ],
           [
-            "word:for",
-            -0.039
+            "word:watches",
+            0.04
           ],
           [
-            "word:watches",
-            0.039
+            "word:for",
+            -0.039
+          ]
+        ]
+      },
+      {
+        "id": "cad7d4c35d718952",
+        "score": 0.23199314407046917,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006,
+        "top_features": [
+          [
+            "word:your",
+            0.168
+          ],
+          [
+            "word:payment",
+            0.1
+          ],
+          [
+            "char:...",
+            -0.071
+          ],
+          [
+            "word:the",
+            -0.066
+          ],
+          [
+            "word:our",
+            0.059
+          ],
+          [
+            "word:dear",
+            0.052
           ]
         ]
       },
       {
         "id": "7921811f64f636b3",
-        "score": 0.23442254238716526,
+        "score": 0.23212108087884653,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007,
@@ -1087,11 +1087,11 @@
           ],
           [
             "word:message",
-            0.043
+            0.045
           ],
           [
             "word:dear",
-            0.04
+            0.041
           ],
           [
             "word:com",
@@ -1105,51 +1105,51 @@
       },
       {
         "id": "26c27947d70962dc",
-        "score": 0.27670370341208483,
+        "score": 0.2765712158571076,
         "source": "nazario",
         "subset": "phishing-2024",
         "year": 2024,
         "top_features": [
           [
+            "word:pdf",
+            0.062
+          ],
+          [
             "word:total",
             0.061
           ],
           [
-            "word:pdf",
-            0.06
-          ],
-          [
             "word:union",
-            0.041
+            0.04
           ],
           [
             "char: i ",
-            -0.034
+            -0.033
           ],
           [
             "word:net",
             -0.027
           ],
           [
-            "word:mal",
-            0.026
+            "word:en",
+            0.025
           ]
         ]
       },
       {
         "id": "44ff30c2aaf43567",
-        "score": 0.3619656473725529,
+        "score": 0.369557344913274,
         "source": "nazario",
         "subset": "phishing-2023",
         "year": 2023,
         "top_features": [
           [
             "word:email",
-            0.281
+            0.285
           ],
           [
             "word:phone",
-            -0.154
+            -0.155
           ],
           [
             "word:regards",
@@ -1157,7 +1157,7 @@
           ],
           [
             "word:download",
-            0.082
+            0.083
           ],
           [
             "word:thanks",
@@ -1170,8 +1170,41 @@
         ]
       },
       {
+        "id": "83e9f8f97b965e13",
+        "score": 0.3711688880320008,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023,
+        "top_features": [
+          [
+            "word:phone",
+            -0.061
+          ],
+          [
+            "word:netflix",
+            0.057
+          ],
+          [
+            "word:email",
+            0.054
+          ],
+          [
+            "word:message",
+            0.04
+          ],
+          [
+            "word:year",
+            0.038
+          ],
+          [
+            "word:reward",
+            0.036
+          ]
+        ]
+      },
+      {
         "id": "23997e09a625189f",
-        "score": 0.36277950633747647,
+        "score": 0.3778886281832711,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
@@ -1194,61 +1227,28 @@
           ],
           [
             "word:at",
-            -0.054
+            -0.055
           ],
           [
-            "char:...",
-            -0.05
-          ]
-        ]
-      },
-      {
-        "id": "83e9f8f97b965e13",
-        "score": 0.37411465390942295,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023,
-        "top_features": [
-          [
-            "word:phone",
-            -0.061
-          ],
-          [
-            "word:netflix",
-            0.057
-          ],
-          [
-            "word:email",
-            0.053
-          ],
-          [
-            "word:message",
-            0.039
-          ],
-          [
-            "word:year",
-            0.038
-          ],
-          [
-            "word:reward",
-            0.036
+            "word:below",
+            0.051
           ]
         ]
       },
       {
         "id": "44c9154102fbc2e3",
-        "score": 0.3883639426316815,
+        "score": 0.3880975400622158,
         "source": "nazario",
         "subset": "phishing1",
         "year": 2005,
         "top_features": [
           [
             "word:email",
-            0.132
+            0.134
           ],
           [
             "word:paypal",
-            0.09
+            0.089
           ],
           [
             "word:this email",
@@ -1260,7 +1260,7 @@
           ],
           [
             "word:usd",
-            0.052
+            0.051
           ],
           [
             "word:the",
@@ -1270,40 +1270,73 @@
       },
       {
         "id": "1238c1f956a50f02",
-        "score": 0.40213676304534246,
+        "score": 0.4042757577970858,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
         "top_features": [
           [
             "char: ur",
-            0.092
+            0.093
           ],
           [
             "char: url:",
-            0.086
+            0.087
           ],
           [
             "char:rl:",
-            0.086
+            0.087
           ],
           [
             "char:url:",
-            0.086
+            0.087
           ],
           [
             "char: url",
-            0.085
+            0.086
           ],
           [
             "char:url",
-            0.084
+            0.085
+          ]
+        ]
+      },
+      {
+        "id": "98fec4c4a10e4db6",
+        "score": 0.42242748542584196,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006,
+        "top_features": [
+          [
+            "word:paypal",
+            0.127
+          ],
+          [
+            "char: , ",
+            0.126
+          ],
+          [
+            "word:security",
+            0.113
+          ],
+          [
+            "word:takes real",
+            0.089
+          ],
+          [
+            "word:but",
+            -0.086
+          ],
+          [
+            "word:it",
+            -0.077
           ]
         ]
       },
       {
         "id": "b421b88866faa231",
-        "score": 0.4203384393546715,
+        "score": 0.42251983896250833,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007,
@@ -1318,11 +1351,11 @@
           ],
           [
             "word:team",
-            0.039
+            0.04
           ],
           [
             "word:toward",
-            0.035
+            0.036
           ],
           [
             "word:cloud",
@@ -1335,48 +1368,15 @@
         ]
       },
       {
-        "id": "98fec4c4a10e4db6",
-        "score": 0.42682864801272613,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006,
-        "top_features": [
-          [
-            "word:paypal",
-            0.128
-          ],
-          [
-            "char: , ",
-            0.127
-          ],
-          [
-            "word:security",
-            0.113
-          ],
-          [
-            "word:takes real",
-            0.088
-          ],
-          [
-            "word:but",
-            -0.086
-          ],
-          [
-            "word:it",
-            -0.077
-          ]
-        ]
-      },
-      {
         "id": "7e860927671187c6",
-        "score": 0.42903757975902845,
+        "score": 0.42666404562323884,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006,
         "top_features": [
           [
             "word:ebay",
-            0.179
+            0.178
           ],
           [
             "word:from ebay",
@@ -1384,25 +1384,25 @@
           ],
           [
             "word:ebay member",
-            0.064
-          ],
-          [
-            "word:member",
-            0.062
+            0.063
           ],
           [
             "word:at",
             -0.061
           ],
           [
+            "word:member",
+            0.061
+          ],
+          [
             "word:is",
-            -0.058
+            -0.057
           ]
         ]
       },
       {
         "id": "8f52e144855d413d",
-        "score": 0.43490814804828426,
+        "score": 0.4348964270590767,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007,
@@ -1436,883 +1436,862 @@
     ]
   },
   "minilm_lr": {
-    "threshold": 0.7562450000000001,
-    "n_false_positives": 25,
-    "n_false_negatives": 98,
+    "threshold": 0.7916210000000001,
+    "n_false_positives": 24,
+    "n_false_negatives": 96,
     "false_positives_by_source": {
-      "enron": 20,
+      "enron": 19,
       "easy_ham_2": 1,
       "hard_ham": 2,
       "easy_ham": 2
     },
     "false_negatives_by_era": {
-      "2004-2007": 58,
+      "2004-2007": 56,
       "2020-2025": 33,
       "2015-2019": 7
     },
     "false_positives": [
       {
         "id": "555fa000a7d3ab47",
-        "score": 0.9727867841720581,
+        "score": 0.9761055111885071,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
         "id": "5432530dc4bc7a45",
-        "score": 0.9658506512641907,
+        "score": 0.9595261216163635,
         "source": "enron",
         "subset": "inbox",
         "year": 2002
-      },
-      {
-        "id": "43f3dfad51039ccd",
-        "score": 0.946751594543457,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
       },
       {
         "id": "6be70339081051ce",
-        "score": 0.9274138808250427,
+        "score": 0.956264853477478,
         "source": "enron",
         "subset": "inbox",
         "year": 2002
-      },
-      {
-        "id": "bef3aa85a1179b68",
-        "score": 0.917626142501831,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
       },
       {
         "id": "e3cd02b20b1cd8e2",
-        "score": 0.9172167778015137,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
-      },
-      {
-        "id": "3ea227408e70829a",
-        "score": 0.90477055311203,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
-      },
-      {
-        "id": "d7e50fb26f77b0f1",
-        "score": 0.8934089541435242,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
-      },
-      {
-        "id": "e440310361f00586",
-        "score": 0.8909499049186707,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
-      },
-      {
-        "id": "4fa21712ef0689d9",
-        "score": 0.8875621557235718,
-        "source": "spamassassin",
-        "subset": "easy_ham_2",
-        "year": 2002
-      },
-      {
-        "id": "847a3864744f7e09",
-        "score": 0.8863389492034912,
+        "score": 0.9459380507469177,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
         "id": "89aeab543ca3af8b",
-        "score": 0.878836452960968,
+        "score": 0.9415969252586365,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
-        "id": "7b459afb045abc68",
-        "score": 0.8719059228897095,
+        "id": "43f3dfad51039ccd",
+        "score": 0.9390899538993835,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
-        "id": "161189a2a1e22a2c",
-        "score": 0.8584154844284058,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
-      },
-      {
-        "id": "805458f5919819dd",
-        "score": 0.8530849814414978,
+        "id": "4fa21712ef0689d9",
+        "score": 0.929521918296814,
         "source": "spamassassin",
-        "subset": "hard_ham",
+        "subset": "easy_ham_2",
         "year": 2002
       },
       {
-        "id": "4ae626e9e4b28dd7",
-        "score": 0.8527630567550659,
+        "id": "bef3aa85a1179b68",
+        "score": 0.9279382228851318,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "3ea227408e70829a",
+        "score": 0.9262319803237915,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
         "id": "27625dec7ee99617",
-        "score": 0.8422125577926636,
+        "score": 0.9174317717552185,
         "source": "spamassassin",
         "subset": "hard_ham",
         "year": 2002
       },
       {
-        "id": "c67a6ed0aa2350e0",
-        "score": 0.8399732708930969,
+        "id": "4ae626e9e4b28dd7",
+        "score": 0.9169090986251831,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
-        "id": "fba4bba47ed0163f",
-        "score": 0.837944507598877,
+        "id": "d7e50fb26f77b0f1",
+        "score": 0.9109266400337219,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "e440310361f00586",
+        "score": 0.9078748226165771,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "847a3864744f7e09",
+        "score": 0.90347820520401,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "7b459afb045abc68",
+        "score": 0.9024484753608704,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "161189a2a1e22a2c",
+        "score": 0.8915839195251465,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
         "id": "2ca8ed23b01f4fbd",
-        "score": 0.8364360332489014,
+        "score": 0.8906682133674622,
         "source": "enron",
         "subset": "inbox",
         "year": 2002
       },
       {
+        "id": "c67a6ed0aa2350e0",
+        "score": 0.8771173357963562,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "805458f5919819dd",
+        "score": 0.8710198998451233,
+        "source": "spamassassin",
+        "subset": "hard_ham",
+        "year": 2002
+      },
+      {
         "id": "e586413e7139d928",
-        "score": 0.8236278891563416,
+        "score": 0.8704937696456909,
         "source": "spamassassin",
         "subset": "easy_ham",
         "year": 2002
       },
       {
+        "id": "8fcf00303cffbeef",
+        "score": 0.8634003400802612,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
+        "id": "c904ab8b4a380a80",
+        "score": 0.8581354022026062,
+        "source": "enron",
+        "subset": "inbox",
+        "year": 2001
+      },
+      {
         "id": "2b8a5b6f2409447a",
-        "score": 0.7875868678092957,
+        "score": 0.8203047513961792,
         "source": "enron",
         "subset": "inbox",
         "year": 2001
       },
       {
         "id": "f568978de6ac9f9e",
-        "score": 0.772731602191925,
+        "score": 0.794259250164032,
         "source": "spamassassin",
         "subset": "easy_ham",
         "year": 2002
-      },
-      {
-        "id": "3254c8088022b2e2",
-        "score": 0.7720140814781189,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
-      },
-      {
-        "id": "694e9be02cc29647",
-        "score": 0.7677426338195801,
-        "source": "enron",
-        "subset": "inbox",
-        "year": 2001
       }
     ],
     "false_negatives": [
       {
         "id": "79b7bb79c80143da",
-        "score": 0.003971913363784552,
+        "score": 0.0012040948495268822,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2005
       },
       {
         "id": "7921811f64f636b3",
-        "score": 0.03241785615682602,
+        "score": 0.010325418785214424,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
-        "id": "055adfc49c0acd94",
-        "score": 0.04729628190398216,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
         "id": "2edefc23019ac8a9",
-        "score": 0.0562356635928154,
+        "score": 0.03704548627138138,
         "source": "nazario",
         "subset": "phishing-2023",
         "year": 2023
       },
       {
+        "id": "055adfc49c0acd94",
+        "score": 0.039114996790885925,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006
+      },
+      {
+        "id": "e7a7ba9f6e7a9601",
+        "score": 0.0406983308494091,
+        "source": "nazario",
+        "subset": "phishing-2024",
+        "year": 2024
+      },
+      {
         "id": "3bf0822a49834afa",
-        "score": 0.06875751167535782,
+        "score": 0.0454326756298542,
         "source": "nazario",
         "subset": "phishing-2025",
         "year": 2025
       },
       {
-        "id": "e7a7ba9f6e7a9601",
-        "score": 0.08088409155607224,
+        "id": "f1d90f9b327afa94",
+        "score": 0.06205274537205696,
         "source": "nazario",
-        "subset": "phishing-2024",
-        "year": 2024
+        "subset": "phishing3",
+        "year": 2006
       },
       {
-        "id": "c81bb8fd4bd865cb",
-        "score": 0.08419619500637054,
-        "source": "nazario",
-        "subset": "phishing-2024",
-        "year": 2024
-      },
-      {
-        "id": "1b21a64832f23c24",
-        "score": 0.09379717707633972,
+        "id": "da5bc24666cd6fc1",
+        "score": 0.06621962785720825,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
         "id": "a5611e1e73976ff4",
-        "score": 0.09407428652048111,
+        "score": 0.07827717810869217,
         "source": "nazario",
         "subset": "phishing1",
         "year": 2005
       },
       {
-        "id": "f1d90f9b327afa94",
-        "score": 0.11445382237434387,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2006
-      },
-      {
-        "id": "347c92a5c9c17470",
-        "score": 0.12227901071310043,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
-        "id": "da5bc24666cd6fc1",
-        "score": 0.12231086939573288,
+        "id": "1b21a64832f23c24",
+        "score": 0.08948007971048355,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
-        "id": "78f6a3b5ed29c762",
-        "score": 0.13609272241592407,
+        "id": "c81bb8fd4bd865cb",
+        "score": 0.09772864729166031,
+        "source": "nazario",
+        "subset": "phishing-2024",
+        "year": 2024
+      },
+      {
+        "id": "347c92a5c9c17470",
+        "score": 0.14484982192516327,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
       },
       {
-        "id": "9f2dcaccab3db1c6",
-        "score": 0.15739135444164276,
-        "source": "nazario",
-        "subset": "phishing1",
-        "year": 2005
-      },
-      {
-        "id": "7e860927671187c6",
-        "score": 0.16473211348056793,
+        "id": "1986594eb1a7a9be",
+        "score": 0.1452692598104477,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
+      },
+      {
+        "id": "fde26de45c7b5c2f",
+        "score": 0.1624564230442047,
+        "source": "nazario",
+        "subset": "phishing-2022",
+        "year": 2022
       },
       {
         "id": "8968392212fea242",
-        "score": 0.1656438708305359,
+        "score": 0.16888342797756195,
         "source": "nazario",
         "subset": "phishing-2024",
         "year": 2024
       },
       {
         "id": "eb51625d7470af9d",
-        "score": 0.18019966781139374,
+        "score": 0.18109092116355896,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
-        "id": "fde26de45c7b5c2f",
-        "score": 0.20305189490318298,
+        "id": "7e860927671187c6",
+        "score": 0.18835432827472687,
         "source": "nazario",
-        "subset": "phishing-2022",
-        "year": 2022
+        "subset": "phishing2",
+        "year": 2006
       },
       {
-        "id": "b2f4a479029a9bc6",
-        "score": 0.22504733502864838,
+        "id": "78f6a3b5ed29c762",
+        "score": 0.1905796378850937,
         "source": "nazario",
-        "subset": "phishing0",
-        "year": 2005
-      },
-      {
-        "id": "68802ec84aba808f",
-        "score": 0.2325328290462494,
-        "source": "nazario",
-        "subset": "phishing3",
+        "subset": "phishing2",
         "year": 2006
       },
       {
         "id": "0c76f6d7787e1d77",
-        "score": 0.23394875228405,
+        "score": 0.20027415454387665,
         "source": "nazario",
         "subset": "phishing-2022",
         "year": 2022
       },
       {
         "id": "b5ff4983c59cf976",
-        "score": 0.24310369789600372,
+        "score": 0.22468121349811554,
         "source": "nazario",
         "subset": "phishing-2020",
         "year": 2020
       },
       {
-        "id": "b421b88866faa231",
-        "score": 0.2535839080810547,
+        "id": "68802ec84aba808f",
+        "score": 0.23425285518169403,
         "source": "nazario",
         "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "1986594eb1a7a9be",
-        "score": 0.2592979073524475,
-        "source": "nazario",
-        "subset": "phishing2",
         "year": 2006
       },
       {
-        "id": "8c569d7b78c9cee4",
-        "score": 0.26820895075798035,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "26c27947d70962dc",
-        "score": 0.2703661620616913,
-        "source": "nazario",
-        "subset": "phishing-2024",
-        "year": 2024
-      },
-      {
-        "id": "932b7dc93b8ce0d3",
-        "score": 0.2849436402320862,
-        "source": "nazario",
-        "subset": "phishing0",
-        "year": 2005
-      },
-      {
-        "id": "b285c1a5e1c7dc99",
-        "score": 0.28559547662734985,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "7f70af2b7ef60812",
-        "score": 0.2916094660758972,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "5c5d33b1b2bcc9ec",
-        "score": 0.29372647404670715,
+        "id": "9f2dcaccab3db1c6",
+        "score": 0.24682176113128662,
         "source": "nazario",
         "subset": "phishing1",
         "year": 2005
       },
       {
-        "id": "b8c9b927caaa4c95",
-        "score": 0.30722731351852417,
-        "source": "nazario",
-        "subset": "phishing-2016",
-        "year": 2016
-      },
-      {
-        "id": "ad24e5c7419f77bc",
-        "score": 0.32513633370399475,
-        "source": "nazario",
-        "subset": "phishing-2016",
-        "year": 2016
-      },
-      {
-        "id": "258f532ad13f5b81",
-        "score": 0.3256342113018036,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "7c8e4f44e04e6b0c",
-        "score": 0.3454773724079132,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
         "id": "23997e09a625189f",
-        "score": 0.3511827290058136,
+        "score": 0.25349780917167664,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
       },
       {
         "id": "952c8c6ec8819e4c",
-        "score": 0.35729458928108215,
+        "score": 0.2822842299938202,
         "source": "nazario",
         "subset": "phishing-2019",
         "year": 2019
       },
       {
+        "id": "ad24e5c7419f77bc",
+        "score": 0.2850385904312134,
+        "source": "nazario",
+        "subset": "phishing-2016",
+        "year": 2016
+      },
+      {
+        "id": "258f532ad13f5b81",
+        "score": 0.292036235332489,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "b8c9b927caaa4c95",
+        "score": 0.300059974193573,
+        "source": "nazario",
+        "subset": "phishing-2016",
+        "year": 2016
+      },
+      {
+        "id": "b2f4a479029a9bc6",
+        "score": 0.3036911189556122,
+        "source": "nazario",
+        "subset": "phishing0",
+        "year": 2005
+      },
+      {
+        "id": "8c569d7b78c9cee4",
+        "score": 0.3062610924243927,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "932b7dc93b8ce0d3",
+        "score": 0.3079841434955597,
+        "source": "nazario",
+        "subset": "phishing0",
+        "year": 2005
+      },
+      {
+        "id": "7f70af2b7ef60812",
+        "score": 0.33577656745910645,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
         "id": "52876239a70429b0",
-        "score": 0.3669447600841522,
+        "score": 0.34436240792274475,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "b421b88866faa231",
+        "score": 0.34803879261016846,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "5c5d33b1b2bcc9ec",
+        "score": 0.3634401857852936,
+        "source": "nazario",
+        "subset": "phishing1",
+        "year": 2005
+      },
+      {
+        "id": "7c8e4f44e04e6b0c",
+        "score": 0.3979184627532959,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "26c27947d70962dc",
+        "score": 0.3992592692375183,
+        "source": "nazario",
+        "subset": "phishing-2024",
+        "year": 2024
+      },
+      {
+        "id": "8f52e144855d413d",
+        "score": 0.43972086906433105,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "b285c1a5e1c7dc99",
+        "score": 0.44198331236839294,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
         "id": "38d088e6263d5034",
-        "score": 0.3973894417285919,
+        "score": 0.44312360882759094,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2006
       },
       {
-        "id": "ec90a5ed20883826",
-        "score": 0.4211793839931488,
+        "id": "bcad7b5d0fedacb4",
+        "score": 0.4556456506252289,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
       },
       {
-        "id": "99a5c023f7e71680",
-        "score": 0.4214833974838257,
+        "id": "bfe92ecef8fef83d",
+        "score": 0.45723992586135864,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
         "id": "2b3c72024252d366",
-        "score": 0.4224192798137665,
+        "score": 0.4945891499519348,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "99a5c023f7e71680",
+        "score": 0.4963917136192322,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
         "id": "353d6ee271c283d0",
-        "score": 0.4261611998081207,
+        "score": 0.5134855508804321,
         "source": "nazario",
         "subset": "phishing-2016",
         "year": 2016
       },
       {
-        "id": "bfe92ecef8fef83d",
-        "score": 0.4483230710029602,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "36cd16ece1ac2bc5",
-        "score": 0.461969256401062,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
-        "id": "1835d52a4bb17099",
-        "score": 0.4678470492362976,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2005
-      },
-      {
-        "id": "bcad7b5d0fedacb4",
-        "score": 0.4695506989955902,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
         "id": "44c9154102fbc2e3",
-        "score": 0.4754834771156311,
+        "score": 0.5158399939537048,
         "source": "nazario",
         "subset": "phishing1",
         "year": 2005
       },
       {
+        "id": "8cbaca664dd61466",
+        "score": 0.5242668986320496,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "825ea077c4013a8f",
+        "score": 0.5243252515792847,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2006
+      },
+      {
+        "id": "ec90a5ed20883826",
+        "score": 0.5302094221115112,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006
+      },
+      {
         "id": "cad7d4c35d718952",
-        "score": 0.49363163113594055,
+        "score": 0.5415014028549194,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
       },
       {
         "id": "e58c88d6cd657cf2",
-        "score": 0.49616605043411255,
+        "score": 0.5470576882362366,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2005
       },
       {
-        "id": "8cbaca664dd61466",
-        "score": 0.5018777251243591,
+        "id": "5023b140fef35199",
+        "score": 0.5540338158607483,
         "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "db0d44bcfefdaf88",
-        "score": 0.5036064386367798,
-        "source": "nazario",
-        "subset": "phishing3",
+        "subset": "phishing1",
         "year": 2005
-      },
-      {
-        "id": "fc93ca15988fa8e3",
-        "score": 0.5164287090301514,
-        "source": "nazario",
-        "subset": "phishing-2020",
-        "year": 2020
-      },
-      {
-        "id": "673c9975b79006df",
-        "score": 0.5330802798271179,
-        "source": "nazario",
-        "subset": "phishing-2015",
-        "year": 2015
-      },
-      {
-        "id": "f2924a8cff62ede0",
-        "score": 0.5359411239624023,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "3b4f5a4df0071643",
-        "score": 0.5359411239624023,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "825ea077c4013a8f",
-        "score": 0.5377476811408997,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2006
       },
       {
         "id": "c706a2adc6d3c823",
-        "score": 0.5381559133529663,
+        "score": 0.564302921295166,
         "source": "nazario",
         "subset": "phishing-2024",
         "year": 2024
       },
       {
-        "id": "83e9f8f97b965e13",
-        "score": 0.5607016682624817,
+        "id": "cb8ad77a30700348",
+        "score": 0.5902214050292969,
         "source": "nazario",
         "subset": "phishing-2023",
         "year": 2023
+      },
+      {
+        "id": "1ebbaea740605050",
+        "score": 0.5902214050292969,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "db0d44bcfefdaf88",
+        "score": 0.5922542214393616,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2005
+      },
+      {
+        "id": "44ff30c2aaf43567",
+        "score": 0.5933399200439453,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "1b27eedab3ee180a",
+        "score": 0.5940819382667542,
+        "source": "nazario",
+        "subset": "phishing-2025",
+        "year": 2025
+      },
+      {
+        "id": "36cd16ece1ac2bc5",
+        "score": 0.5965738892555237,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006
+      },
+      {
+        "id": "673c9975b79006df",
+        "score": 0.6032537221908569,
+        "source": "nazario",
+        "subset": "phishing-2015",
+        "year": 2015
+      },
+      {
+        "id": "83e9f8f97b965e13",
+        "score": 0.607762336730957,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "82a3360a1efecc47",
+        "score": 0.6252157092094421,
+        "source": "nazario",
+        "subset": "phishing-2022",
+        "year": 2022
+      },
+      {
+        "id": "fc93ca15988fa8e3",
+        "score": 0.6263080835342407,
+        "source": "nazario",
+        "subset": "phishing-2020",
+        "year": 2020
+      },
+      {
+        "id": "9361cc140ec5322f",
+        "score": 0.632272481918335,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "1835d52a4bb17099",
+        "score": 0.6380100250244141,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2005
       },
       {
         "id": "9cc025c81c41f58a",
-        "score": 0.5637912154197693,
+        "score": 0.6388503313064575,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
-        "id": "8f52e144855d413d",
-        "score": 0.5707643628120422,
+        "id": "33918cb61f61454a",
+        "score": 0.6438871622085571,
+        "source": "nazario",
+        "subset": "phishing-2024",
+        "year": 2024
+      },
+      {
+        "id": "74817f8339086ab7",
+        "score": 0.6571234464645386,
+        "source": "nazario",
+        "subset": "phishing-2024",
+        "year": 2024
+      },
+      {
+        "id": "155c78ff8145cd6b",
+        "score": 0.6571738719940186,
         "source": "nazario",
         "subset": "phishing3",
-        "year": 2007
+        "year": 2006
+      },
+      {
+        "id": "d70fd48294ef87a2",
+        "score": 0.6679866909980774,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2005
       },
       {
         "id": "35b65b170d22e855",
-        "score": 0.5781429409980774,
+        "score": 0.6703611612319946,
         "source": "nazario",
         "subset": "phishing-2023",
         "year": 2023
       },
       {
-        "id": "ca075642d7d3a78a",
-        "score": 0.5822595953941345,
+        "id": "83490d3b5103c771",
+        "score": 0.6771090626716614,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006
+      },
+      {
+        "id": "c5c683d381b84b22",
+        "score": 0.6933563947677612,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "a114329472b244ec",
+        "score": 0.6985727548599243,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
       },
       {
         "id": "ac0152cca1c5e7d3",
-        "score": 0.5907055139541626,
+        "score": 0.7063485383987427,
         "source": "nazario",
         "subset": "phishing-2023",
         "year": 2023
-      },
-      {
-        "id": "155c78ff8145cd6b",
-        "score": 0.5954046249389648,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2006
-      },
-      {
-        "id": "c0c112ac4afba175",
-        "score": 0.5961312055587769,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "b6269172c2d2ea16",
-        "score": 0.5964375138282776,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "83490d3b5103c771",
-        "score": 0.6053523421287537,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
-        "id": "1b27eedab3ee180a",
-        "score": 0.6079503893852234,
-        "source": "nazario",
-        "subset": "phishing-2025",
-        "year": 2025
-      },
-      {
-        "id": "74817f8339086ab7",
-        "score": 0.6150935888290405,
-        "source": "nazario",
-        "subset": "phishing-2024",
-        "year": 2024
-      },
-      {
-        "id": "d70fd48294ef87a2",
-        "score": 0.6174457669258118,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2005
-      },
-      {
-        "id": "57e7dca75ec6d65e",
-        "score": 0.6175497174263,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
-        "id": "44ff30c2aaf43567",
-        "score": 0.6203579306602478,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "5023b140fef35199",
-        "score": 0.623543381690979,
-        "source": "nazario",
-        "subset": "phishing1",
-        "year": 2005
-      },
-      {
-        "id": "82a3360a1efecc47",
-        "score": 0.6325505971908569,
-        "source": "nazario",
-        "subset": "phishing-2022",
-        "year": 2022
-      },
-      {
-        "id": "1238c1f956a50f02",
-        "score": 0.6356669664382935,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
       },
       {
         "id": "28e0409d54566bd0",
-        "score": 0.6432893872261047,
+        "score": 0.7173701524734497,
         "source": "nazario",
         "subset": "phishing2",
         "year": 2006
       },
       {
-        "id": "baebc1f8c7ecfe5a",
-        "score": 0.6532971262931824,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "33918cb61f61454a",
-        "score": 0.6637707948684692,
-        "source": "nazario",
-        "subset": "phishing-2024",
-        "year": 2024
-      },
-      {
-        "id": "fe9647b10d16da4d",
-        "score": 0.6792983412742615,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "2c17429162f4cd2d",
-        "score": 0.6817017793655396,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
-        "id": "96f6e375014fa410",
-        "score": 0.6833072900772095,
-        "source": "nazario",
-        "subset": "phishing-2018",
-        "year": 2018
-      },
-      {
-        "id": "f06815dcda65a5e7",
-        "score": 0.6947799324989319,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "b635e34622e9502a",
-        "score": 0.6948395371437073,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "c5a373b1ed291d0c",
-        "score": 0.6989411115646362,
-        "source": "nazario",
-        "subset": "phishing3",
-        "year": 2007
-      },
-      {
-        "id": "2012bccab527b841",
-        "score": 0.7144951224327087,
-        "source": "nazario",
-        "subset": "phishing-2024",
-        "year": 2024
-      },
-      {
-        "id": "34b8b4e113f27ca9",
-        "score": 0.7198618650436401,
-        "source": "nazario",
-        "subset": "phishing2",
-        "year": 2006
-      },
-      {
-        "id": "8edf436c7279d0a8",
-        "score": 0.722912073135376,
+        "id": "b6269172c2d2ea16",
+        "score": 0.7240694165229797,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
         "id": "bcc69053a181d50a",
-        "score": 0.726727306842804,
+        "score": 0.7328656911849976,
         "source": "nazario",
         "subset": "phishing-2025",
         "year": 2025
       },
       {
-        "id": "2e21a1e6aee8725c",
-        "score": 0.727725088596344,
+        "id": "bc9b627f70493fb4",
+        "score": 0.7369403839111328,
         "source": "nazario",
         "subset": "phishing-2022",
         "year": 2022
       },
       {
-        "id": "c5c683d381b84b22",
-        "score": 0.7332605719566345,
+        "id": "3a9c52a402d40291",
+        "score": 0.7380954027175903,
         "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "dc088a712ab8d986",
-        "score": 0.7358816266059875,
-        "source": "nazario",
-        "subset": "phishing-2023",
-        "year": 2023
-      },
-      {
-        "id": "df35b6ca125b1a45",
-        "score": 0.737440288066864,
-        "source": "nazario",
-        "subset": "phishing-2025",
-        "year": 2025
-      },
-      {
-        "id": "857fe322f06994ce",
-        "score": 0.7394158840179443,
-        "source": "nazario",
-        "subset": "phishing0",
+        "subset": "phishing1",
         "year": 2005
       },
       {
-        "id": "43c91dd8f6e807e0",
-        "score": 0.7397493720054626,
+        "id": "ecb4ff8a3bc44013",
+        "score": 0.7393733859062195,
         "source": "nazario",
         "subset": "phishing-2018",
         "year": 2018
       },
       {
+        "id": "c5a373b1ed291d0c",
+        "score": 0.7420361042022705,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "2012bccab527b841",
+        "score": 0.7477246522903442,
+        "source": "nazario",
+        "subset": "phishing-2024",
+        "year": 2024
+      },
+      {
+        "id": "1d2c39ac8667bdca",
+        "score": 0.7499711513519287,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "d20b215dd9ffeedc",
+        "score": 0.7505651712417603,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "c0c112ac4afba175",
+        "score": 0.752426266670227,
+        "source": "nazario",
+        "subset": "phishing3",
+        "year": 2007
+      },
+      {
+        "id": "f90912fd54ecc5b1",
+        "score": 0.7525654435157776,
+        "source": "nazario",
+        "subset": "phishing-2020",
+        "year": 2020
+      },
+      {
+        "id": "57e7dca75ec6d65e",
+        "score": 0.7598356008529663,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006
+      },
+      {
         "id": "fa5791d9545c9695",
-        "score": 0.7407171130180359,
+        "score": 0.7625763416290283,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
       },
       {
         "id": "60320bcef319853e",
-        "score": 0.7410966157913208,
+        "score": 0.7681881189346313,
         "source": "nazario",
         "subset": "phishing-2025",
         "year": 2025
       },
       {
-        "id": "f32ead806ea41ca1",
-        "score": 0.746086835861206,
-        "source": "nazario",
-        "subset": "phishing-2020",
-        "year": 2020
-      },
-      {
         "id": "9476b15e5828619a",
-        "score": 0.754599928855896,
+        "score": 0.768738329410553,
         "source": "nazario",
         "subset": "phishing3",
         "year": 2007
+      },
+      {
+        "id": "857fe322f06994ce",
+        "score": 0.7695835828781128,
+        "source": "nazario",
+        "subset": "phishing0",
+        "year": 2005
+      },
+      {
+        "id": "77a8a445fe3a005d",
+        "score": 0.7698829770088196,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "dc088a712ab8d986",
+        "score": 0.7700725197792053,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "1acda3e374270a49",
+        "score": 0.7732921242713928,
+        "source": "nazario",
+        "subset": "phishing-2023",
+        "year": 2023
+      },
+      {
+        "id": "1238c1f956a50f02",
+        "score": 0.7838469743728638,
+        "source": "nazario",
+        "subset": "phishing2",
+        "year": 2006
+      },
+      {
+        "id": "f7a697fd2f98a53a",
+        "score": 0.7856658697128296,
+        "source": "nazario",
+        "subset": "phishing-2016",
+        "year": 2016
       }
     ]
   }
