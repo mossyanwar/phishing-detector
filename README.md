@@ -1,7 +1,8 @@
 # phishing-detector
 
-A phishing email classifier trained on public corpora, an honest evaluation
-of it, and a harness for comparing it with an LLM.
+A phishing email classifier trained on public corpora, a check of how much
+of its score comes from differences between those corpora, and a harness for
+comparing it with an LLM.
 
 * Data: Nazario phishing corpus (2004-2025) against SpamAssassin and Enron
   legitimate mail, with the leakage between those corpora found and cleaned
