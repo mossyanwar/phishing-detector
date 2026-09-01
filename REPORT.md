@@ -1,7 +1,7 @@
 # Phishing email detection: small trained models and an LLM harness
 
 All numbers here come from runs of the scripts in this repository on
-2026-05-25, on a laptop CPU (Intel i7-1360P, 16 logical cores, WSL2, Python
+2026-09-02, on a laptop CPU (Intel i7-1360P, 16 logical cores, WSL2, Python
 3.12). The LLM classifier is built and tested offline but **has not been run
 against a paid API**, so this report has no LLM accuracy, cost or latency
 results, only the commands that will produce them.

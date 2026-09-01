@@ -213,10 +213,60 @@ def test_anthropic_request_and_response_shape():
     assert seen["url"] == "https://api.anthropic.com/v1/messages"
     assert seen["headers"]["x-api-key"] == "test-key"
     assert seen["headers"]["anthropic-version"] == "2023-06-01"
+    assert seen["body"]["model"] == "claude-opus-5-5"
     assert seen["body"]["system"] == "sys"
     assert seen["body"]["messages"] == [{"role": "user", "content": "user"}]
-    assert seen["body"]["max_tokens"] == 80
+    # thinking counts towards max_tokens, so room for it goes on top of the answer budget
+    assert seen["body"]["max_tokens"] == 80 + 2048
+    assert seen["body"]["output_config"] == {"effort": "low"}
+    assert "temperature" not in seen["body"]
+    assert seen["body"]["fallbacks"] == "default"
+    assert seen["headers"]["anthropic-beta"] == "server-side-fallback-2026-07-01"
     assert (c.input_tokens, c.output_tokens) == (300, 25)
+
+
+def _anthropic_reply(content, stop_reason="end_turn", model="claude-opus-5-5", **extra):
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={"model": model, "content": content, "stop_reason": stop_reason,
+                                         "usage": {"input_tokens": 10, "output_tokens": 5}, **extra})
+    return handler
+
+
+def test_anthropic_skips_thinking_blocks_and_reports_the_model_that_answered():
+    content = [{"type": "thinking", "thinking": "", "signature": "sig"},
+               {"type": "text", "text": '{"label": "phishing", "confidence": 0.9, "reason": "r"}'}]
+    p = AnthropicProvider(api_key="k", client=_mock_client(_anthropic_reply(content, model="claude-opus-4-8")))
+    c = p.complete("sys", "user")
+    assert json.loads(c.text)["label"] == "phishing"
+    assert c.model == "claude-opus-4-8"
+
+
+def test_anthropic_refusal_is_an_error_not_an_answer():
+    p = AnthropicProvider(api_key="k", client=_mock_client(
+        _anthropic_reply([], stop_reason="refusal", stop_details={"type": "refusal", "category": "cyber"})))
+    with pytest.raises(ProviderError, match="declined.*cyber"):
+        p.complete("sys", "user")
+
+
+def test_anthropic_running_out_of_tokens_while_thinking_is_an_error():
+    content = [{"type": "thinking", "thinking": "", "signature": "sig"}]
+    p = AnthropicProvider(api_key="k", client=_mock_client(_anthropic_reply(content, stop_reason="max_tokens")))
+    with pytest.raises(ProviderError, match="max_tokens"):
+        p.complete("sys", "user")
+
+
+def test_older_anthropic_models_get_no_effort_or_fallbacks():
+    seen = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen["headers"] = request.headers
+        seen["body"] = json.loads(request.content)
+        return _anthropic_reply([{"type": "text", "text": "{}"}], model="claude-haiku-4-5")(request)
+
+    AnthropicProvider("claude-haiku-4-5", api_key="k", client=_mock_client(handler)).complete("sys", "user")
+    assert "output_config" not in seen["body"]
+    assert "fallbacks" not in seen["body"]
+    assert "anthropic-beta" not in seen["headers"]
 
 
 def test_retries_on_rate_limit_then_succeeds():
@@ -268,5 +318,5 @@ def test_end_to_end_with_mocked_anthropic_and_classifier():
     clf = LLMClassifier(p, mode="zero-shot")
     res = clf.classify_many([PHISH, LEGIT])
     assert [r.label for r in res] == [1, 0]
-    # list price for claude-haiku-4-5 in the table: $1 in / $5 out per million tokens
-    assert res[0].cost_usd == pytest.approx((1000 * 1.0 + 30 * 5.0) / 1e6)
+    # list price for claude-opus-5-5 in the table: $4 in / $20 out per million tokens
+    assert res[0].cost_usd == pytest.approx((1000 * 4.0 + 30 * 20.0) / 1e6)
