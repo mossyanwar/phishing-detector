@@ -49,8 +49,8 @@ To fill the LLM rows (they run on a fixed sample of 200 test emails; the script
 prints a cost estimate and refuses to call the API without `--yes`):
 
 ```
-python scripts/run_llm_eval.py --provider anthropic --model claude-haiku-4-5 --mode zero-shot --yes
-python scripts/run_llm_eval.py --provider anthropic --model claude-haiku-4-5 --mode few-shot --yes
+python scripts/run_llm_eval.py --provider anthropic --model claude-opus-5-5 --mode zero-shot --yes
+python scripts/run_llm_eval.py --provider anthropic --model claude-opus-5-5 --mode few-shot --yes
 python scripts/run_llm_eval.py --provider openai --model gpt-4o-mini --mode zero-shot --yes
 python scripts/run_llm_eval.py --provider openai --model gpt-4o-mini --mode few-shot --yes
 ```
