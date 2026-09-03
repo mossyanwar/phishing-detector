@@ -14,7 +14,7 @@ Usage:
     python scripts/run_llm_eval.py --make-sample                  # (re)create the sample file
     python scripts/run_llm_eval.py --compare-baselines            # small models on the same sample
     python scripts/run_llm_eval.py --provider fake --mode zero-shot    # offline dry run
-    python scripts/run_llm_eval.py --provider anthropic --model claude-haiku-4-5 --mode zero-shot --yes
+    python scripts/run_llm_eval.py --provider anthropic --model claude-opus-5-5 --mode zero-shot --yes
     python scripts/run_llm_eval.py --provider openai --model gpt-4o-mini --mode few-shot --yes
 
 API keys are read from ANTHROPIC_API_KEY / OPENAI_API_KEY.
@@ -28,6 +28,7 @@ import json
 import random
 import sys
 import time
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -135,11 +136,13 @@ def main(argv: list[str] | None = None) -> int:
 
     recs = load_sample(args.n)
     y = np.array([r.label for r in recs])
-    model_name = args.model or {"openai": "gpt-4o-mini", "anthropic": "claude-haiku-4-5", "fake": "fake-rules"}[args.provider]
+    model_name = args.model or {"openai": "gpt-4o-mini", "anthropic": "claude-opus-5-5", "fake": "fake-rules"}[args.provider]
     price = (args.price_in, args.price_out) if args.price_in is not None and args.price_out is not None else price_for(args.provider, model_name)
     est = estimate(recs, args.mode, args.max_email_chars, price)
     print(f"{len(recs)} emails, mode {args.mode}, ~{est['input_tokens_est']:,} input tokens, "
           f"estimated cost {'unknown (no price)' if est['cost_usd_est'] is None else f'${est['cost_usd_est']:.3f}'}")
+    if args.provider == "anthropic":
+        print("current claude models can think before answering and that bills as output, so the real cost can be higher")
     if args.provider != "fake" and not args.yes:
         print("not calling the API: add --yes to run it")
         return 0
@@ -164,6 +167,8 @@ def main(argv: list[str] | None = None) -> int:
         "wall_clock_s": wall,
         "run_at": time.strftime("%Y-%m-%d %H:%M:%S %Z"),
         **summarise(results, y),
+        # with refusal fallbacks on, a declined email can be answered by another model
+        "served_by": dict(Counter(r.model for r in results if r.error is None)),
     }
     tp, fn = summary["confusion"]["tp"], summary["confusion"]["fn"]
     fp, tn = summary["confusion"]["fp"], summary["confusion"]["tn"]
