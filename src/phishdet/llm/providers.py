@@ -111,25 +111,42 @@ class OpenAIProvider(_HTTPProvider):
 
 
 class AnthropicProvider(_HTTPProvider):
-    """POST /v1/messages."""
+    """POST /v1/messages.
+
+    Current Claude models think before they answer and the thinking counts
+    towards max_tokens, so the request adds ``thinking_room`` on top of the
+    answer budget and asks for low effort. They also reject ``temperature``,
+    so it is only sent when set. Where the API supports it, a safety-classifier
+    refusal is retried on another model inside the same call; the model that
+    actually answered is returned in ``Completion.model``.
+    """
 
     name = "anthropic"
     api_version = "2023-06-01"
+    fallback_beta = "server-side-fallback-2026-07-01"
+    fallback_models = {"claude-fable-5-1", "claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5"}
+    no_effort_models = {"claude-haiku-4-5", "claude-sonnet-4-5"}
 
-    def __init__(self, model: str = "claude-haiku-4-5", api_key: str | None = None,
-                 base_url: str = "https://api.anthropic.com", temperature: float | None = 0.0, **kw):
+    def __init__(self, model: str = "claude-opus-5-5", api_key: str | None = None,
+                 base_url: str = "https://api.anthropic.com", temperature: float | None = None,
+                 effort: str | None = "low", thinking_room: int = 2048, fallbacks: bool = True, **kw):
         super().__init__(model, **kw)
         self._key = _api_key(api_key, "ANTHROPIC_API_KEY")
         self.base_url = base_url.rstrip("/")
         self.temperature = temperature
+        self.effort = effort
+        self.thinking_room = thinking_room
+        self.fallbacks = fallbacks
 
     def complete(self, system: str, user: str, max_tokens: int = 200) -> Completion:
         body = {
             "model": self.model,
-            "max_tokens": max_tokens,
+            "max_tokens": max_tokens + self.thinking_room,
             "system": system,
             "messages": [{"role": "user", "content": user}],
         }
+        if self.effort and self.model not in self.no_effort_models:
+            body["output_config"] = {"effort": self.effort}
         if self.temperature is not None:
             body["temperature"] = self.temperature
         headers = {
@@ -137,14 +154,23 @@ class AnthropicProvider(_HTTPProvider):
             "anthropic-version": self.api_version,
             "content-type": "application/json",
         }
+        if self.fallbacks and self.model in self.fallback_models:
+            body["fallbacks"] = "default"
+            headers["anthropic-beta"] = self.fallback_beta
         data, latency = self._post(f"{self.base_url}/v1/messages", headers, body)
+        stop = data.get("stop_reason")
+        if stop == "refusal":
+            category = (data.get("stop_details") or {}).get("category")
+            raise ProviderError(f"{data.get('model', self.model)} declined the request (category: {category})")
         try:
             text = "".join(b.get("text", "") for b in data["content"] if b.get("type") == "text")
             usage = data.get("usage", {})
-            return Completion(text, int(usage.get("input_tokens", 0)), int(usage.get("output_tokens", 0)),
-                              latency, data.get("model", self.model))
         except (KeyError, TypeError) as e:
             raise ProviderError(f"unexpected Anthropic response shape: {e}") from e
+        if not text.strip() and stop == "max_tokens":
+            raise ProviderError("ran out of max_tokens before answering, raise thinking_room or lower effort")
+        return Completion(text, int(usage.get("input_tokens", 0)), int(usage.get("output_tokens", 0)),
+                          latency, data.get("model", self.model))
 
 
 _SUSPICIOUS = re.compile(
@@ -188,7 +214,7 @@ def make_provider(name: str, model: str | None = None, **kw) -> Provider:
     if name == "openai":
         return OpenAIProvider(model or "gpt-4o-mini", **kw)
     if name == "anthropic":
-        return AnthropicProvider(model or "claude-haiku-4-5", **kw)
+        return AnthropicProvider(model or "claude-opus-5-5", **kw)
     if name == "fake":
         return FakeProvider(model or "fake-rules")
     raise ValueError(f"unknown provider {name!r}")

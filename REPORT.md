@@ -1,7 +1,7 @@
 # Phishing email detection: small trained models and an LLM harness
 
 All numbers here come from runs of the scripts in this repository on
-2026-05-25, on a laptop CPU (Intel i7-1360P, 16 logical cores, WSL2, Python
+2026-09-04, on a laptop CPU (Intel i7-1360P, 16 logical cores, WSL2, Python
 3.12). The LLM classifier is built and tested offline but **has not been run
 against a paid API**, so this report has no LLM accuracy, cost or latency
 results, only the commands that will produce them.
@@ -162,8 +162,8 @@ Calibration as reliability curves, Brier score and expected calibration error
 |---|---|---|---|---|---|---|---|---|---|
 | TF-IDF + LR | 0.9978 | 0.9972 | 0.983 / 0.972 / 0.977 | 0.439 | 0.981 / 0.978 / 0.979 | 1.3% | 20 / 23 | 0.019 | 0.056 |
 | MiniLM + LR | 0.9921 | 0.9899 | 0.945 / 0.959 / 0.952 | 0.792 | 0.975 / 0.908 / 0.940 | 1.6% | 24 / 96 | 0.031 | 0.014 |
-| LLM zero-shot (Anthropic claude-haiku-4-5) | not run yet | | | | | | | | |
-| LLM few-shot (Anthropic claude-haiku-4-5) | not run yet | | | | | | | | |
+| LLM zero-shot (Anthropic claude-opus-5-5) | not run yet | | | | | | | | |
+| LLM few-shot (Anthropic claude-opus-5-5) | not run yet | | | | | | | | |
 | LLM zero-shot (OpenAI gpt-4o-mini) | not run yet | | | | | | | | |
 | LLM few-shot (OpenAI gpt-4o-mini) | not run yet | | | | | | | | |
 
@@ -171,8 +171,8 @@ P = precision, R = recall. To fill the LLM rows, with the API key in the
 environment (`ANTHROPIC_API_KEY` or `OPENAI_API_KEY`):
 
 ```
-python scripts/run_llm_eval.py --provider anthropic --model claude-haiku-4-5 --mode zero-shot --yes
-python scripts/run_llm_eval.py --provider anthropic --model claude-haiku-4-5 --mode few-shot --yes
+python scripts/run_llm_eval.py --provider anthropic --model claude-opus-5-5 --mode zero-shot --yes
+python scripts/run_llm_eval.py --provider anthropic --model claude-opus-5-5 --mode few-shot --yes
 python scripts/run_llm_eval.py --provider openai --model gpt-4o-mini --mode zero-shot --yes
 python scripts/run_llm_eval.py --provider openai --model gpt-4o-mini --mode few-shot --yes
 ```
@@ -265,13 +265,17 @@ hand-entered table). For the 200-email sample it estimates:
 
 | configuration | est. input tokens | est. cost, 200 emails | est. cost per 1,000 emails |
 |---|---|---|---|
-| claude-haiku-4-5, zero-shot | 104k | $0.16 | $0.82 |
-| claude-haiku-4-5, few-shot | 186k | $0.25 | $1.23 |
+| claude-opus-5-5, zero-shot | 104k | $0.66 | $3.29 |
+| claude-opus-5-5, few-shot | 186k | $0.98 | $4.92 |
+| claude-haiku-5-5, zero-shot | 104k | $0.016 | $0.082 |
+| claude-haiku-5-5, few-shot | 186k | $0.025 | $0.12 |
 | gpt-4o-mini, zero-shot | 104k | $0.023 | $0.12 |
 | gpt-4o-mini, few-shot | 186k | $0.035 | $0.18 |
 
 These are estimates from list prices written into the code, not measured
-costs. A real run records the token counts the API returns.
+costs. Current Claude models can think before they answer and that thinking is
+billed as output, so their real cost can be above these figures. A real run
+records the token counts the API returns.
 
 ### 5.7 The 200-email LLM sample
 
