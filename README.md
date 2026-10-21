@@ -123,3 +123,7 @@ The Nazario corpus is CC BY 4.0 (Jose Nazario). The SpamAssassin corpus and
 the Enron corpus have no formal licence and are published for research and
 filter testing. None of the email data is redistributed here; see
 `data/README.md`.
+
+---
+
+Developed locally in May 2026 and published to GitHub in October 2026.
